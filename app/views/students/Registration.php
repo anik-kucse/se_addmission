@@ -17,38 +17,38 @@
 <body>
 <div class="container-fluid">
     <h1 style="text-align: center">Registration</h1>
-    <form  action="#" method="post" class="row justify-content-around" style="padding-top: 10px">
+    <form action="#" method="post" class="row justify-content-around" style="padding-top: 10px">
 
         <div class="col-8 form-group row">
-            <label for="FullName" class="col-2 col-form-label">Full Name</label>
+            <label for="regfullname" class="col-2 col-form-label">Full Name</label>
             <div class="col-10">
                 <input class="form-control" type="text" id="regfullname">
             </div>
         </div>
 
         <div class="col-8 form-group row">
-            <label for="Username" class="col-2 col-form-label">Username</label>
+            <label for="regusername" class="col-2 col-form-label">Username</label>
             <div class="col-10">
                 <input class="form-control" type="text" id="regusername">
             </div>
         </div>
 
         <div class="col-8 form-group row">
-            <label for="Password" class="col-2 col-form-label">Password</label>
+            <label for="regpassword" class="col-2 col-form-label">Password</label>
             <div class="col-10">
                 <input class="form-control" type="password" id="regpassword">
             </div>
         </div>
 
         <div class="col-8 form-group row">
-            <label for="FatherName" class="col-2 col-form-label">Father's Name</label>
+            <label for="fathername" class="col-2 col-form-label">Father's Name</label>
             <div class="col-10">
                 <input class="form-control" type="text" id="fathername">
             </div>
         </div>
 
         <div class="col-8 form-group row">
-            <label for="Mothername" class="col-2 col-form-label">Mother's Name</label>
+            <label for="mothername" class="col-2 col-form-label">Mother's Name</label>
             <div class="col-10">
                 <input class="form-control" type="text" id="mothername">
             </div>
@@ -59,14 +59,14 @@
         </div>
 
         <div class="col-8 form-group row">
-            <label for="StreetVillage" class="col-2 col-form-label">Street/Village</label>
+            <label for="streetvillage" class="col-2 col-form-label">Street/Village</label>
             <div class="col-10">
                 <input class="form-control" type="text" id="streetvillage">
             </div>
         </div>
 
         <div class="col-8 form-group row">
-            <label for="PostCode" class="col-2 col-form-label">Post Code</label>
+            <label for="postcode" class="col-2 col-form-label">Post Code</label>
             <div class="col-10">
                 <input class="form-control" type="text" pattern="[0-9]{4}" id="postcode">
             </div>
@@ -74,21 +74,21 @@
 
 
         <div class="col-8 form-group row">
-            <label for="UpozillaThana" class="col-2 col-form-label">Upazilla/Thana</label>
+            <label for="upozillathana" class="col-2 col-form-label">Upazilla/Thana</label>
             <div class="col-10">
                 <input class="form-control" type="text" id="upozillathana">
             </div>
         </div>
 
         <div class="col-8 form-group row">
-            <label for="Districr" class="col-2 col-form-label">District</label>
+            <label for="districr" class="col-2 col-form-label">District</label>
             <div class="col-10">
                 <input class="form-control" type="text" id="districr">
             </div>
         </div>
 
         <div class="col-8 form-group row">
-            <label for="Division" class="col-2 col-form-label">Division</label>
+            <label for="division" class="col-2 col-form-label">Division</label>
             <div class="col-10">
                 <input class="form-control" type="text" id="division">
             </div>
@@ -100,36 +100,36 @@
         </div>
 
         <div class="col-8 form-group row">
-            <label for="StreetVillage" class="col-2 col-form-label">Street/Village</label>
+            <label for="perstreetvillage" class="col-2 col-form-label">Street/Village</label>
             <div class="col-10">
                 <input class="form-control" type="text" id="perstreetvillage">
             </div>
         </div>
 
         <div class="col-8 form-group row">
-            <label for="PostCode" class="col-2 col-form-label">Post Code</label>
+            <label for="postcode" class="col-2 col-form-label">Post Code</label>
             <div class="col-10">
-                <input class="form-control" type="text" pattern="[0-9]{4}">
+                <input class="form-control" type="text" pattern="[0-9]{4}" id="postcode">
             </div>
         </div>
 
 
         <div class="col-8 form-group row">
-            <label for="UpozillaThana" class="col-2 col-form-label">Upazilla/Thana</label>
+            <label for="perupozillathana" class="col-2 col-form-label">Upazilla/Thana</label>
             <div class="col-10">
                 <input class="form-control" type="text" id="perupozillathana">
             </div>
         </div>
 
         <div class="col-8 form-group row">
-            <label for="Districr" class="col-2 col-form-label">District</label>
+            <label for="perdistricr" class="col-2 col-form-label">District</label>
             <div class="col-10">
                 <input class="form-control" type="text" id="perdistricr">
             </div>
         </div>
 
         <div class="col-8 form-group row">
-            <label for="Division" class="col-2 col-form-label">Division</label>
+            <label for="perdivision" class="col-2 col-form-label">Division</label>
             <div class="col-10">
                 <input class="form-control" type="text" id="perdivision">
             </div>
@@ -137,11 +137,11 @@
 
 
         <div class="col-8 form-group row">
-            <label for="Gender" class="col-2 col-form-label">Gender</label>
+            <label for="gender" class="col-2 col-form-label">Gender</label>
             <div class="col-10" >
                 <select class="form-control" name="" id="gender">
-                    <option value="male"><a class="" href="#">Male</a></option>
-                    <option value="female"><a href="#">Female</a></option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
 
                 </select>
             </div>
@@ -155,21 +155,21 @@
         </div>
 
         <div class="col-8 form-group row">
-            <label for="Mobile" class="col-2 col-form-label">Mobile No</label>
+            <label for="mobile" class="col-2 col-form-label">Mobile No</label>
             <div class="col-10">
                 <input class="form-control" type="text" pattern="[0-9]{11}" id="mobile">
             </div>
         </div>
 
         <div class="col-8 form-group row">
-            <label for="AlterMobile" class="col-2 col-form-label">Alternative Mobile No</label>
+            <label for="altermobile" class="col-2 col-form-label">Alternative Mobile No</label>
             <div class="col-10">
                 <input class="form-control" type="text" pattern="[0-9]{11}" id="altermobile">
             </div>
         </div>
 
         <div class="col-8 form-group row">
-            <label for="FatherMobile" class="col-2 col-form-label">Father's Mobile No</label>
+            <label for="fathermobile" class="col-2 col-form-label">Father's Mobile No</label>
             <div class="col-10">
                 <input class="form-control" type="text" pattern="[0-9]{11}" id="fathermobile">
             </div>
@@ -191,26 +191,28 @@
                 <tbody>
                 <tr>
                     <td>SSC</td>
-                    <td><select class="form-control" name="sscboard" id="sscboard">
-                            <option value=""><a href="#">Dhaka</a></option>
-                            <option value=""><a href="#">Jessore</a></option>
-                        </select></td>
-                    <td><input class="form-control" type="text" pattern="[0-9]{4}" id="sscyear"></td>
-                    <td><input class="form-control" type="number" id="sscregno"></td>
-                    <td><input class="form-control" type="number" id="sscrollno"></td>
-                    <td><input class="form-control" type="text" pattern="[0-9,.]" id="ssccgpa"></td>
+                    <td>
+                        <select class="form-control" name="sscboard" id="sscboard" title="SSC Board">
+                            <option value="">Dhaka</option>
+                            <option value="">Jessore</option>
+                        </select>
+                    </td>
+                    <td><input class="form-control" type="text" pattern="[0-9]{4}" id="sscyear" placeholder="SSC Year"></td>
+                    <td><input class="form-control" type="number" id="sscregno" placeholder="SSS Registration No"></td>
+                    <td><input class="form-control" type="number" id="sscrollno" placeholder="SSC Roll No"></td>
+                    <td><input class="form-control" type="text" pattern="[0-9,.]" id="sscgpa" placeholder="SSC GPA"></td>
                 </tr>
                 <tr>
                     <td>HSC</td>
-                    <td><select class="form-control" name="hscboard" id="hscboard">
+                    <td><select class="form-control" name="hscboard" id="hscboard" title="HSC Board">
 
-                            <option value=""><a href="#">Dhaka</a></option>
-                            <option value=""><a href="#">Jessore</a></option>
+                            <option value="">Dhaka</option>
+                            <option value="">Jessore</option>
                         </select></td>
-                    <td><input class="form-control" type="text" pattern="[0-9]" id="hscyear"></td>
-                    <td><input class="form-control" type="text" pattern="[0-9]" id="hscregno"></td>
-                    <td><input class="form-control" type="text" pattern="[0-9]" id="hscrollno"></td>
-                    <td><input class="form-control" type="text" pattern="[0-9]" id="hsccgpa"></td>
+                    <td><input class="form-control" type="text" pattern="[0-9]" id="hscyear" placeholder="HSC Year"></td>
+                    <td><input class="form-control" type="text" pattern="[0-9]" id="hscregno" placeholder="HSC Registration No"></td>
+                    <td><input class="form-control" type="text" pattern="[0-9]" id="hscrollno" placeholder="HSC Roll No"></td>
+                    <td><input class="form-control" type="text" pattern="[0-9]" id="hscgpa" placeholder="HSC GPA"></td>
                 </tr>
                 </tbody>
             </table>
