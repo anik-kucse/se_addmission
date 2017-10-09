@@ -1,7 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: anik
- * Date: 9/12/2017
- * Time: 5:15 PM
- */
+spl_autoload_register(function ($class){
+    include_once "system/libs/".$class.".php";
+});
+
+include "app/config/config.php";
+
+$mail = new Main();
