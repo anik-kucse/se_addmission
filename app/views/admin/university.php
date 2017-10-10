@@ -3,23 +3,14 @@
     <nav class="nav2">
 
         <form class="form-inline">
-            <!--                        <div class="dropdown mr-sm-2">-->
-            <!--                            <button class="btn btn-outline-dark dropdown-toggle btnsearchby" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-            <!--                                Search by-->
-            <!--                            </button>-->
-            <!--                            <div class="dropdown-menu ddl" aria-labelledby="dropdownMenuButton">-->
-            <!--                                <a class="dropdown-item" href="#">University name</a>-->
-            <!--                                <a class="dropdown-item" href="#">Modified by</a>-->
-            <!--                                <a class="dropdown-item" href="#">Modification time</a>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <select class="form-control btnsearchby" name="" id="unisearch">
-                <option value="optsearch"><a class="" href="#">Search by</a></option>
+            <span style="padding-right: 5px">Search by</span>
+         <select class="form-control btnsearchby" name="" id="unisearch">
+             <option value="optall"><a href="#">All</a></option>
                 <option value="optuni"><a href="#">University name</a></option>
                 <option value="optusers"><a href="#">Modified by</a></option>
                 <option value="opttime"><a href="#">Modification time</a></option>
             </select>
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2 my-2" type="text" placeholder="Search" aria-label="Search" style="margin-left: 10px">
             <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
         </form>
     </nav>
@@ -74,8 +65,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-outline-primary">Save</button>
+                        <button type="button" class="btn btn-outline-info">Save</button>
                     </div>
                 </div>
             </div>
@@ -95,7 +85,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-danger">Yes</button>
-                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-outline-info" data-dismiss="modal">No</button>
                     </div>
                 </div>
             </div>
@@ -119,7 +109,6 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-outline-primary">Save</button>
                     </div>
                 </div>
