@@ -5,6 +5,7 @@
             <form class="form-inline">
                 <span style="padding-right: 5px">Search by</span>
                 <select class="form-control btnsearchby" name="Search by" id="boardsearch">
+                    <option value="all"><a href="#">All</a></option>
                     <option value="opsession"><a href="#">Board</a></option>
                     <option value="optusers"><a href="#">Modified by</a></option>
                     <option value="opttime"><a href="#">Modification time</a></option>
