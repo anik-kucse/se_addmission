@@ -9,7 +9,7 @@
                     <option value="optusers"><a href="#">Modified by</a></option>
                     <option value="opttime"><a href="#">Modification time</a></option>
                 </select>
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2 my-2" type="text" placeholder="Search" aria-label="Search" style="margin-left: 10px">
                 <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
             </form>
         </nav>
@@ -48,8 +48,8 @@
 
             <!--                modals start-->
             <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="update" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                <div class="modal-dialog"  role="document">
+                    <div class="modal-content" >
                         <div class="modal-header">
                             <h5 class="modal-title" id="update">Update </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -65,8 +65,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-outline-primary">Save</button>
+                            <button type="button" class="btn btn-outline-info">Save</button>
                         </div>
                     </div>
                 </div>
@@ -86,7 +85,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-danger">Yes</button>
-                            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-outline-info" data-dismiss="modal">No</button>
                         </div>
                     </div>
                 </div>
@@ -110,8 +109,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-outline-primary">Save</button>
+                            <button type="button" class="btn btn-outline-info">Save</button>
                         </div>
                     </div>
                 </div>
