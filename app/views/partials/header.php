@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://localhost/se_addmission/vendors/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://localhost/se_addmission/vendors/css/site.css">
+
     <title><?php echo "$pageName"; ?></title>
     <script src="http://localhost/se_addmission/vendors/js/jquery-3.2.1.slim.min.js" charset="utf-8"></script>
     <script src="http://localhost/se_addmission/vendors/js/popper.min.js" charset="utf-8"></script>
     <script src="http://localhost/se_addmission/vendors/js/bootstrap.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="http://localhost/se_addmission/vendors/css/site.css">
 </head>
 <body>
     <nav class="container-fluid navbar navbar-expand navbar-dark bg-dark">
@@ -25,12 +26,13 @@
             <!-- Navs Ends -->
         </div>
     </nav>
+
 <div class="container-fluid" id="content">
     <div class="row">
         <div class="col-3" id="sidebar">
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">University</a>
+                    <a href="" class="nav-link active">University</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Unit</a>
