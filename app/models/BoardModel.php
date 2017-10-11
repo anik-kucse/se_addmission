@@ -8,14 +8,4 @@ class BoardModel extends MainModel{
     {
         parent::__construct();
     }
-
-    public function insertIntoBoard($data){
-        return $this->db->insert('board', $data);
-    }
-
-    public function getAllBoard()
-    {
-        $sqp = "SELECT * FROM board";
-        return $this->db->select($sqp);
-    }
 }

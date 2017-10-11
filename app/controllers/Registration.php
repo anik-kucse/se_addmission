@@ -18,7 +18,7 @@ class Registration extends MainController{
 
     public function registration(){
 
-        $data['pagename'] = 'Register';
+        $data['pageName'] = 'Register';
         $this->load->view('partials/headerPublic',$data);
 
         $simpleModel =$this->load->model('SimpleModel');
