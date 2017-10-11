@@ -15,4 +15,13 @@ class UserModel extends MainModel{
         $sql = "SELECT * FROM user";
         return $this->db->select($sql);
     }
+
+    public function insertUser($data){
+        return $this->db->insert('users', $data, true);
+    }
+
+    public function updateUser($data, $cond){
+        return $this->db->update('users', $data, $cond);
+    }
+
 }
