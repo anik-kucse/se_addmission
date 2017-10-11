@@ -1,20 +1,3 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="http://localhost/se_addmission/vendors/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://localhost/se_addmission/vendors/css/site.css">
-    <title>Registration</title>
-    <script src="http://localhost/se_addmission/vendors/js/jquery-3.2.1.slim.min.js" charset="utf-8"></script>
-    <script src="http://localhost/se_addmission/vendors/js/popper.min.js" charset="utf-8"></script>
-    <script src="http://localhost/se_addmission/vendors/js/bootstrap.min.js" charset="utf-8"></script>
-
-    <style>
-        th {
-            text-align: center;
-        }
-    </style>
-<body>
 <div class="container-fluid">
     <h1 style="text-align: center">Registration</h1>
     <form action="<?php echo BASE_URL?>/Index/regAuth" method="post" class="row justify-content-around" style="padding-top: 10px">
@@ -193,9 +176,9 @@
                     <td>SSC</td>
                     <td>
                         <select class="form-control" name="sscboard" id="sscboard" title="SSC Board">
-                        <?php foreach ($data['board'] as  $key => $value){?>
-                            <option value="<?php echo $value['id']?>"><?php echo $value['name']?></option>
-                        <?php }?>
+                            <?php foreach ($data['board'] as  $key => $value){?>
+                                <option value="<?php echo $value['id']?>"><?php echo $value['name']?></option>
+                            <?php }?>
                         </select>
                     </td>
                     <td><input class="form-control" type="text" " id="sscyear" name="sscyear" placeholder="SSC Year"></td>
@@ -206,9 +189,9 @@
                 <tr>
                     <td>HSC</td>
                     <td><select class="form-control" name="hscboard" id="hscboard" title="HSC Board">
-                        <?php foreach ($data['board'] as  $key => $value){?>
-                            <option value="<?php echo $value['id']?>"><?php echo $value['name']?></option>
-                        <?php }?>
+                            <?php foreach ($data['board'] as  $key => $value){?>
+                                <option value="<?php echo $value['id']?>"><?php echo $value['name']?></option>
+                            <?php }?>
                         </select></td>
                     <td><input class="form-control" type="text"  id="hscyear" name="hscyear" placeholder="HSC Year"></td>
                     <td><input class="form-control" type="text"  id="hscregno" name="hscregno" placeholder="HSC Registration No"></td>
@@ -232,5 +215,3 @@
 
 
 </div>
-</body>
-</html>

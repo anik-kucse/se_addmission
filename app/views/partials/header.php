@@ -21,7 +21,7 @@
             <!-- Navs start -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Log out</a>
+                        <a class="nav-link" href="<?php echo BASE_URL?>/Login/logout">Log out</a>
                 </li>
             </ul>
             <!-- Navs Ends -->
