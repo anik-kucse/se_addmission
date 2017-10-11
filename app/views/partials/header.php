@@ -5,9 +5,11 @@
     <link rel="stylesheet" href="http://localhost/se_addmission/vendors/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://localhost/se_addmission/vendors/css/site.css">
     <title><?php echo "$pageName"; ?></title>
-    <script src="http://localhost/se_addmission/vendors/js/jquery-3.2.1.slim.min.js" charset="utf-8"></script>
+    <script src="http://localhost/se_addmission/vendors/js/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="http://localhost/se_addmission/vendors/js/popper.min.js" charset="utf-8"></script>
     <script src="http://localhost/se_addmission/vendors/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
 </head>
 <body>
     <nav class="container-fluid navbar navbar-expand navbar-dark bg-dark">

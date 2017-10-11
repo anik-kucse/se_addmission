@@ -12,14 +12,7 @@ class Index extends MainController
     }
 
     public function Index(){
-        $this->board();
-    }
 
-    public function board(){
-        $data = ['pageName' => 'Board'];
-        $this->load->view("partials/header", $data);
-        $this->load->view("admin/board");
-        $this->load->view("partials/footer");
     }
 
     public function procedure(){
