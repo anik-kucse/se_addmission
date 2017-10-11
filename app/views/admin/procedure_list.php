@@ -4,12 +4,13 @@
             <form class="form-inline">
                     <span style="padding-right: 5px">Search by</span>
                     <select class="form-control btnsearchby" name="Search by" id="unisearch">
+                        <option value="all"><a href="#">All</a></option>
                         <option value="optprocedure"><a href="#">Procedure name</a></option>
                         <option value="optusers"><a href="#">Modified by</a></option>
                         <option value="opttime"><a href="#">Modification time</a></option>
                     </select>
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2 my-2" type="text" placeholder="Search" aria-label="Search" style="margin-left: 10px">
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
                 </form>
         </nav>
     <div class="col">
@@ -61,8 +62,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-outline-primary">Save</button>
+                        <button type="button" class="btn btn-outline-info">Save</button>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-danger">Yes</button>
-                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-outline-info" data-dismiss="modal">No</button>
                     </div>
                 </div>
             </div>
@@ -106,8 +106,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-outline-primary">Save</button>
+                        <button type="button" class="btn btn-outline-info">Save</button>
                     </div>
                 </div>
             </div>

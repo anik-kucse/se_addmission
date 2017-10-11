@@ -25,6 +25,14 @@
     min-height: 82vh;
 }
 
+.modal-content h5,label,p{
+    color: teal;
+}
+
+.modal-content{
+    background-color: azure ;
+}
+
 #sidebar a {
     color: #17a2b8;
 }
