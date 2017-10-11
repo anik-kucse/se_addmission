@@ -1,120 +1,105 @@
 <div class="col">
-    <br>
-    <nav class="nav2">
-
-        <form class="form-inline">
-            <span style="padding-right: 5px">Search by</span>
-            <select class="form-control btnsearchby" name="Search by" id="unisearch">
-                <option value="optsession"><a href="#">Session</a></option>
-                <option value="optusers"><a href="#">Modified by</a></option>
-                <option value="opttime"><a href="#">Modification time</a></option>
-            </select>
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </nav>
-    <div class="col">
-        <table class="table">
+    <div class="table-responsive">
+        <br />
+        <table id="board_data" class="table">
             <thead>
             <tr>
-                <th>Session</th>
-                <th>Modified by</th>
-                <th>Modified at</th>
-                <th></th>
-
+                <th >Board Name</th>
+                <th >Modified by</th>
+                <th >Modified At</th>
+                <th >Edit</th>
+                <th >Delete</th>
             </tr>
             </thead>
             <tbody>
-
-
+            <?php foreach ($data['list'] as $key => $value){?>
                 <tr>
-
-
-                    <td>asdas</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td><button type="button" class="btn btn-outline-info my-2 my-sm-0" data-toggle="modal" data-target="#update" data-whatever="@mdo">Update</button>
-                        <button type="button" class="btn btn-outline-info my-2 my-sm-0" data-toggle="modal" data-target="#delete" data-whatever="@mdo">Delete</button></td>
+                    <td> <span><?php echo $value['name']?></span> </td>
+                    <td>
+                        <?php
+                        foreach ($data['users'] as $k => $v) {
+                            if($v['id'] == $value['modified_by']){
+                                echo $v['full_name'];
+                            }
+                        }
+                        ?>
+                    </td>
+                    <td><?php echo $value['modified_at']?></td>
+                    <td>
+                        <button type="button" name="update" value="<?php echo $value['id']?>" class="btn btn-outline-info my-2 my-sm-0" onclick="btnupdate(this);" id="asdasd" >Update</button>
+                    </td>
+                    <td>
+                        <form action="<?php echo BASE_URL?>/Board/delete" method="post">
+                            <button type="submit" name="delete" value="<?php echo $value['id']?>" class="btn btn-outline-danger my-2 my-sm-0" onclick="return confirm('Do u really wanna delete')" id="asdasd" >Delete</button>
+                        </form>
+                    </td>
                 </tr>
-
+            <?php }?>
             </tbody>
         </table>
-
-        <div class="col crtbtn">
-            <button type="button" name="btncreateuni" class="btn btn-outline-dark my-2 my-sm-0 crtbtn" data-toggle="modal" data-target="#create"  data-whatever="@mdo">Create new</button>
-        </div>
-
-        <!--                modals start-->
-        <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="update" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+    </div>
+    <div>
+        <button type="button" id="add_button" data-toggle="modal" data-target="#dataModal" class="btn btn-outline-info my-2 my-sm-0" onclick="btnAdd(this);">Add</button>
+    </div>
+    <div id="dataModal" class="modal fade">
+        <div class="modal-dialog">
+            <form method="post" id="data_form" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="update">Update </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <h4 class="modal-title"><span id="modal_title">Add Board</span></h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="Session" class="form-control-label">Session</label>
-                                <input type="text" class="form-control" id="session">
-                            </div>
-                        </form>
+                        <label for="board_name" id="lbl_board_name">Enter Board Name</label>
+                        <input autofocus="true" type="text" name="board_name" id="board_name" class="form-control" va/>
+                        <br />
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-outline-primary">Save</button>
+                        <input type="hidden" name="board_id" id="board_id" />
+                        <input type="submit" name="action" id="action" class="btn btn-success" value="Add" />
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
-
-        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="update" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="delete">Delete</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Are you sure?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-danger">Yes</button>
-                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">No</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="create" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="create">Create </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="Session" class="form-control-label">Session</label>
-                                <input type="text" class="form-control" id="crtsession">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-outline-primary">Save</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--                modals end-->
-
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('#board_data').DataTable({
+            "columnDefs":[
+                {
+                    "targets":[3, 4],
+                    "orderable":false,
+                }
+            ]
+        });
+    });
+
+    function btnupdate(asd) {
+        var parent = asd.parentNode.parentNode;
+        var btn = parent.childNodes[7];
+        var btnValue = btn.childNodes[1];
+        var name = parent.childNodes[1];
+        var nameText = name.childNodes[1].innerText;
+        console.log(btnValue.value);
+        $('#dataModal').modal('show');
+        $('#data_form').attr('action','http://localhost/se_addmission/Board/update');
+        $('#modal_title').text('Update Board');
+        $('#lbl_board_name').text('Update this entry');
+        $('#board_name').val(nameText);
+        $('#board_id').val(btnValue.value);
+        $('#action').val('Update');
+    };
+
+    function btnAdd(asd) {
+        $('#dataModal').modal('show');
+        $('#data_form').attr('action','http://localhost/se_addmission/Board/addNew');
+        $('#modal_title').text('Add Board');
+        $('#lbl_board_name').text('Add New Board');
+        $('#board_id').val("");
+        $('#board_name').val("");
+        $('#action').val('Add');
+    };
+
+</script>

@@ -25,7 +25,6 @@ class Database extends PDO {
         foreach ($data as $key => $value) {
             $stmt->bindValue(":$key", $value);
         }
-        var_dump($stmt);
         $msg = $stmt->execute();
         if($msg && $lastIdNeed){
             return $last_id = $this->lastInsertId();

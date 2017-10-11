@@ -33,7 +33,6 @@ class Registration extends MainController{
             $fullname           = $_POST['fullname'];
             $username           = $_POST['username'];
             $password           = $_POST['password'];
-            $confirm_password   = $_POST['confirm_password'];
             $fathername         = $_POST['fathername'];
             $mothername         = $_POST['mothername'];
             $streetvillage      = $_POST['streetvillage'];
