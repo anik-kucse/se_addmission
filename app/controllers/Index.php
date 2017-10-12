@@ -12,7 +12,7 @@ class Index extends MainController
     }
 
     public function Index(){
-        self::procedure();
+        // self::procedure();
     }
 
     public function procedure(){

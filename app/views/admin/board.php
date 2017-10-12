@@ -14,23 +14,25 @@
              <tbody>
              <?php foreach ($data['list'] as $key => $value){?>
                  <tr>
-                     <td> <span><?php echo $value['name']?></span> </td>
+                     <td> <span><?php echo $value['name'];?></span></td>
                      <td>
-                         <?php
-                         foreach ($data['users'] as $k => $v) {
-                             if($v['id'] == $value['modified_by']){
+                        <?php
+
+                        foreach ($data['users'] as $k => $v) {
+                            if ($v['id'] == $value['modified_by']) {
                                 echo $v['full_name'];
-                             }
-                         }
-                         ?>
+                            }
+                        }
+                        ?>
+
                      </td>
-                     <td><?php echo $value['modified_at']?></td>
+                     <td><?php echo $value['modified_at'];?></td>
                      <td>
-                         <button type="button" name="update" value="<?php echo $value['id']?>" class="btn btn-outline-info my-2 my-sm-0" onclick="btnupdate(this);" id="asdasd" >Update</button>
+                         <button type="button" name="update" value="<?php echo $value['id']?>" class="btn btn-outline-info my-2 my-sm-0" onclick="btnupdate(this);" >Update</button>
                      </td>
                      <td>
                          <form action="<?php echo BASE_URL?>/Board/delete" method="post">
-                             <button type="submit" name="delete" value="<?php echo $value['id']?>" class="btn btn-outline-danger my-2 my-sm-0" onclick="return confirm('Do u really wanna delete')" id="asdasd" >Delete</button>
+                             <button type="submit" name="delete" value="<?php echo $value['id']?>" class="btn btn-outline-danger my-2 my-sm-0" onclick="return confirm('Do u really wanna delete')">Delete</button>
                          </form>
                      </td>
                  </tr>
@@ -39,7 +41,7 @@
          </table>
     </div>
     <div>
-        <button type="button" id="add_button" data-toggle="modal" data-target="#dataModal" class="btn btn-outline-info my-2 my-sm-0" onclick="btnAdd(this);">Add</button>
+        <center><button type="button" id="add_button" data-toggle="modal" data-target="#dataModal" class="btn btn-outline-info my-2 my-sm-0" onclick="btnAdd(this);">Add</button></center>
     </div>
     <div id="dataModal" class="modal fade">
         <div class="modal-dialog">
@@ -78,17 +80,15 @@
 
      function btnupdate(asd) {
          var parent = asd.parentNode.parentNode;
-         var btn = parent.childNodes[7];
-         var btnValue = btn.childNodes[1];
+         var btnValue = parent.childNodes[7].childNodes[1].value;
          var name = parent.childNodes[1];
          var nameText = name.childNodes[1].innerText;
-         console.log(btnValue.value);
          $('#dataModal').modal('show');
          $('#data_form').attr('action','http://localhost/se_addmission/Board/update');
          $('#modal_title').text('Update Board');
          $('#lbl_board_name').text('Update this entry');
          $('#board_name').val(nameText);
-         $('#board_id').val(btnValue.value);
+         $('#board_id').val(btnValue);
          $('#action').val('Update');
      };
 

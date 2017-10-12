@@ -16,23 +16,23 @@ class Board extends MainController{
     }
 
     public function board(){
-        $data = ['pageName' => 'Board'];
-        $this->load->view("partials/header", $data);
+        $pageName=['pageName' => 'Board'];
+        $this->load->view('partials/header', $pageName);
 
         $simpleModel = $this->load->model('SimpleModel');
-        $table['list'] = $simpleModel->getAll('board');
+        $table['list']  = $simpleModel->getAll('board');
         $table['users'] = $simpleModel->getAll('users');
 
-        $this->load->view("admin/board", $table);
-        $this->load->view("partials/footer");
+        $this->load->view('admin/board', $table );
+        $this->load->view('partials/footer');
     }
 
     public function addNew(){
         $simpleModel = $this->load->model('SimpleModel');
-        Usession::init();
+        session::init();
         $data =[
           'name'        =>  $_POST['board_name'],
-          'modified_by' =>  Usession::get('id')
+          'modified_by' =>  session::get('id')
         ];
         $res = $simpleModel->insert('board',$data);
         if($res){
@@ -42,10 +42,10 @@ class Board extends MainController{
 
     public function update(){
         $simpleModel = $this->load->model('SimpleModel');
-        Usession::init();
+        session::init();
         $data =[
           'name'        =>  $_POST['board_name'],
-          'modified_by' =>  Usession::get('id')
+          'modified_by' =>  session::get('id')
         ];
         $board_id = $_POST['board_id'];
         $cond = "id = $board_id";
