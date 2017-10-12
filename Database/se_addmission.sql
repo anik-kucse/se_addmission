@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2017 at 12:53 PM
+-- Generation Time: Oct 12, 2017 at 05:17 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -23,18 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contact`
---
-
-
-CREATE TABLE `se_addmission`.`contact` (
-    `id` INT NOT NULL AUTO_INCREMENT ,
-    `name` VARCHAR(255) NOT NULL ,
-    `phone_no` VARCHAR(31) NOT NULL ,
-    PRIMARY KEY (`id`)
-) ENGINE = InnoDB DEFAULT CHARSET=latin1;
-
---
 -- Table structure for table `board`
 --
 
@@ -44,6 +32,14 @@ CREATE TABLE `board` (
   `modified_by` int(11) NOT NULL,
   `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `board`
+--
+
+INSERT INTO `board` (`id`, `name`, `modified_by`, `modified_at`) VALUES
+(36, 'Dhaka', 15, '2017-10-11 14:32:37'),
+(38, 'Jessore', 15, '2017-10-11 14:32:48');
 
 -- --------------------------------------------------------
 
@@ -74,6 +70,13 @@ CREATE TABLE `procedure_list` (
   `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `procedure_list`
+--
+
+INSERT INTO `procedure_list` (`id`, `name`, `modified_by`, `modified_at`) VALUES
+(1, 'download', 15, '2017-10-12 00:45:32');
+
 -- --------------------------------------------------------
 
 --
@@ -93,15 +96,23 @@ CREATE TABLE `profile_picture` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `quata`
+-- Table structure for table `quota`
 --
 
-CREATE TABLE `quata` (
+CREATE TABLE `quota` (
   `id` int(11) NOT NULL,
   `type` varchar(10) NOT NULL,
   `modified_by` int(11) NOT NULL,
   `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `quota`
+--
+
+INSERT INTO `quota` (`id`, `type`, `modified_by`, `modified_at`) VALUES
+(2, 'FFQ', 15, '2017-10-12 01:55:16'),
+(3, 'FF', 15, '2017-10-12 01:55:30');
 
 -- --------------------------------------------------------
 
@@ -115,6 +126,14 @@ CREATE TABLE `session` (
   `modified_by` int(11) NOT NULL,
   `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `session`
+--
+
+INSERT INTO `session` (`id`, `session`, `modified_by`, `modified_at`) VALUES
+(5, '2014-15', 15, '2017-10-11 23:46:26'),
+(6, '2015-16', 15, '2017-10-12 00:34:01');
 
 -- --------------------------------------------------------
 
@@ -177,21 +196,32 @@ CREATE TABLE `student` (
   `ssc_year` int(4) NOT NULL,
   `ssc_registration_number` int(11) NOT NULL,
   `ssc_roll_number` int(11) NOT NULL,
+  `ssc_gpa` varchar(5) NOT NULL,
   `hsc_board_id` int(11) NOT NULL,
   `hsc_year` int(4) NOT NULL,
   `hsc_registration_number` int(11) NOT NULL,
   `hsc_roll_number` int(11) NOT NULL,
+  `hsc_gpa` varchar(5) NOT NULL,
   `modified_by` int(11) NOT NULL,
   `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`id`, `user_id`, `father_name`, `mother_name`, `present_street_village`, `present_post_code`, `present_Upozilla_thana`, `present_district`, `present_division`, `permanent_street_village`, `permanent_post_code`, `permanent_Upozilla_thana`, `permanent_district`, `permanent_division`, `gender`, `mobile`, `alternative_mobile`, `father_mobile`, `ssc_board_id`, `ssc_year`, `ssc_registration_number`, `ssc_roll_number`, `ssc_gpa`, `hsc_board_id`, `hsc_year`, `hsc_registration_number`, `hsc_roll_number`, `hsc_gpa`, `modified_by`, `modified_at`) VALUES
+(4, 16, 'asdasd', 'asdas', 'asdas', 2314, 'asd', 'asd', 'asd', 'asd', 1234, 'asd', 'asd', 'asd', 1, 1914307542, 1914307542, 1914307542, 36, 1234, 21234, 21234, '3', 36, 21234, 23134, 234234, '32442', 16, '2017-10-11 03:48:54'),
+(5, 17, 'asd', 'asd', 'asd', 1234, 'asd', 'asd', 'asd', 'asd', 2314, 'asd', 'asd', 'asd', 1, 1914307542, 1914307542, 1914307542, 36, 1234, 32124, 3214, '1', 36, 2134, 2314, 3214, '2314', 17, '2017-10-11 14:57:07'),
+(6, 18, 'asd', 'asd', 'asd', 1234, 'asd', 'asd', 'asd', 'asd', 2314, 'asd', 'asd', 'asd', 1, 1914307542, 1914307542, 1914307542, 36, 1234, 32124, 3214, '1', 36, 2134, 2314, 3214, '2314', 18, '2017-10-11 14:58:24');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `stuednt_quata`
+-- Table structure for table `student_quota`
 --
 
-CREATE TABLE `stuednt_quata` (
+CREATE TABLE `student_quota` (
   `id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
   `quata_id` int(11) NOT NULL,
@@ -214,6 +244,14 @@ CREATE TABLE `subject` (
   `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `subject`
+--
+
+INSERT INTO `subject` (`id`, `code`, `name`, `subject_type_id`, `modified_id`, `modified_at`) VALUES
+(1, 245, 'English', 2, 15, '2017-10-12 02:02:12'),
+(2, 2124, 'asdasd', 4, 15, '2017-10-12 03:12:52');
+
 -- --------------------------------------------------------
 
 --
@@ -226,6 +264,14 @@ CREATE TABLE `subject_type` (
   `modified_by` int(11) NOT NULL,
   `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subject_type`
+--
+
+INSERT INTO `subject_type` (`id`, `type`, `modified_by`, `modified_at`) VALUES
+(2, 'HSC', 15, '2017-10-11 23:46:48'),
+(4, 'SSC', 15, '2017-10-12 00:33:35');
 
 -- --------------------------------------------------------
 
@@ -295,6 +341,14 @@ CREATE TABLE `university` (
   `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `university`
+--
+
+INSERT INTO `university` (`id`, `name`, `modified_by`, `modified_at`) VALUES
+(2, 'Dhaka University', 15, '2017-10-12 00:34:42'),
+(4, 'Khulna University', 15, '2017-10-12 00:35:24');
+
 -- --------------------------------------------------------
 
 --
@@ -305,12 +359,22 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `full_name` varchar(256) NOT NULL,
   `user_name` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(256) NOT NULL,
   `user_role` enum('admin','manager','data_entry','student') NOT NULL,
   `account_status` tinyint(1) NOT NULL,
   `modified_by` int(11) NOT NULL,
   `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `full_name`, `user_name`, `password`, `user_role`, `account_status`, `modified_by`, `modified_at`) VALUES
+(15, 'admin', 'admin', '202cb962ac59075b964b07152d234b70', 'admin', 1, 15, '2017-10-11 03:48:08'),
+(16, 'asd', 'asd', '202cb962ac59075b964b07152d234b70', 'student', 1, 16, '2017-10-11 03:48:54'),
+(17, 'Pranta', 'pranta', '7815696ecbf1c96e6894b779456d330e', 'student', 1, 17, '2017-10-11 14:57:07'),
+(18, 'Prantaasdasd', 'prantaaaa', '7815696ecbf1c96e6894b779456d330e', 'student', 1, 18, '2017-10-11 14:58:24');
 
 --
 -- Indexes for dumped tables
@@ -344,9 +408,9 @@ ALTER TABLE `profile_picture`
   ADD KEY `student_id` (`student_id`);
 
 --
--- Indexes for table `quata`
+-- Indexes for table `quota`
 --
-ALTER TABLE `quata`
+ALTER TABLE `quota`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -380,9 +444,9 @@ ALTER TABLE `student`
   ADD KEY `hsc_board_id` (`hsc_board_id`);
 
 --
--- Indexes for table `stuednt_quata`
+-- Indexes for table `student_quota`
 --
-ALTER TABLE `stuednt_quata`
+ALTER TABLE `student_quota`
   ADD PRIMARY KEY (`id`),
   ADD KEY `student_id` (`student_id`),
   ADD KEY `quata_id` (`quata_id`);
@@ -444,7 +508,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `board`
 --
 ALTER TABLE `board`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `form_sell`
 --
@@ -454,22 +518,22 @@ ALTER TABLE `form_sell`
 -- AUTO_INCREMENT for table `procedure_list`
 --
 ALTER TABLE `procedure_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `profile_picture`
 --
 ALTER TABLE `profile_picture`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `quata`
+-- AUTO_INCREMENT for table `quota`
 --
-ALTER TABLE `quata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `quota`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `signature`
 --
@@ -484,22 +548,22 @@ ALTER TABLE `ssc_hsc_result`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `stuednt_quata`
+-- AUTO_INCREMENT for table `student_quota`
 --
-ALTER TABLE `stuednt_quata`
+ALTER TABLE `student_quota`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `subject_type`
 --
 ALTER TABLE `subject_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `unit`
 --
@@ -519,12 +583,12 @@ ALTER TABLE `unit_prosedure_status`
 -- AUTO_INCREMENT for table `university`
 --
 ALTER TABLE `university`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- Constraints for dumped tables
 --
@@ -564,11 +628,11 @@ ALTER TABLE `student`
   ADD CONSTRAINT `student_ibfk_3` FOREIGN KEY (`hsc_board_id`) REFERENCES `board` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `stuednt_quata`
+-- Constraints for table `student_quota`
 --
-ALTER TABLE `stuednt_quata`
-  ADD CONSTRAINT `stuednt_quata_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `stuednt_quata_ibfk_2` FOREIGN KEY (`quata_id`) REFERENCES `quata` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `student_quota`
+  ADD CONSTRAINT `student_quota_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_quota_ibfk_2` FOREIGN KEY (`quata_id`) REFERENCES `quota` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `subject`

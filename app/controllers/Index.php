@@ -8,7 +8,7 @@ class Index extends MainController
 
     public function __construct(){
         parent::__construct();
-//        Session::checkSession();
+//        Usession::checkSession();
     }
 
     public function Index(){
@@ -23,7 +23,7 @@ class Index extends MainController
     }
 
     public function session(){
-        $data = ['pageName' => 'Session'];
+        $data = ['pageName' => 'Usession'];
         $this->load->view("partials/header", $data);
         $this->load->view("admin/session");
         $this->load->view("partials/footer");

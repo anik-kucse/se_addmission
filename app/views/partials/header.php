@@ -27,7 +27,7 @@
             <!-- Navs Ends -->
         </div>
     </nav>
-<div class="container-fluid" id="content">
+<div class="container-fluid" id="content" >
     <div class="row">
         <div class="col-3" id="sidebar">
             <ul class="nav nav-pills flex-column">

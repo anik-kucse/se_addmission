@@ -29,10 +29,10 @@ class Board extends MainController{
 
     public function addNew(){
         $simpleModel = $this->load->model('SimpleModel');
-        Session::init();
+        Usession::init();
         $data =[
           'name'        =>  $_POST['board_name'],
-          'modified_by' =>  Session::get('id')
+          'modified_by' =>  Usession::get('id')
         ];
         $res = $simpleModel->insert('board',$data);
         if($res){
@@ -42,10 +42,10 @@ class Board extends MainController{
 
     public function update(){
         $simpleModel = $this->load->model('SimpleModel');
-        Session::init();
+        Usession::init();
         $data =[
           'name'        =>  $_POST['board_name'],
-          'modified_by' =>  Session::get('id')
+          'modified_by' =>  Usession::get('id')
         ];
         $board_id = $_POST['board_id'];
         $cond = "id = $board_id";

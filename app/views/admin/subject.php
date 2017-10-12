@@ -1,145 +1,137 @@
 <div class="col">
-    <br>
-    <nav class="nav2">
-
-        <form class="form-inline">
-            <span style="padding-right: 5px">Search by</span>
-            <select class="form-control btnsearchby" name="Search by" id="unisearch">
-                <option value="optcode"><a href="#">Subject code</a></option>
-                <option value="optsubname"><a href="#">Subject name</a></option>
-                <option value="optsubtype"><a href="#">Subject type</a></option>
-                <option value="optusers"><a href="#">Modified by</a></option>
-                <option value="opttime"><a href="#">Modification time</a></option>
-            </select>
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </nav>
-    <div class="col">
-        <table class="table">
+    <div class="table-responsive">
+        <br />
+        <table id="sub_table" class="table">
             <thead>
             <tr>
-                <th>Subject code</th>
-                <th>Subject name</th>
-                <th>Subject type</th>
-                <th>Modified by</th>
-                <th>Modified at</th>
-                <th></th>
-
+                <th >Code</th>
+                <th >Name</th>
+                <th >Type</th>
+                <th >Modified by</th>
+                <th >Modified At</th>
+                <th >Edit</th>
+                <th >Delete</th>
             </tr>
             </thead>
             <tbody>
-
+            <?php foreach ($data['list'] as $key => $value){?>
                 <tr>
-
-
-                    <td>l;sdkfksdf</td>
-                    <td>dfgdfgdfg</td>
-                    <td>qweqwe</td>
-                    <td>asdasd</td>
-                    <td>asdasd</td>
-                    <!--                                    <td><button class="" type="button" name="btnupdateuni">Update</button><button class="btn btn-outline-danger my-2 my-sm-0" type="button" name="btndeleteuni">Delete</button></td>-->
-                    <td><button type="button" class="btn btn-outline-info my-2 my-sm-0" data-toggle="modal" data-target="#update" data-whatever="@mdo">Update</button>
-                        <button type="button" class="btn btn-outline-info my-2 my-sm-0" data-toggle="modal" data-target="#delete" data-whatever="@mdo">Delete</button></td>
+                    <td> <span><?php echo $value['code']?></span> </td>
+                    <td> <span><?php echo $value['name']?></span> </td>
+                    <td>
+                        <span style="display: none"><?php echo $value['subject_type_id']?></span>
+                        <span>
+                            <?php
+                            foreach ($data['type'] as $k => $v){
+                                if($v['id'] == $value['subject_type_id']){
+                                    echo $v['type'];
+                                }
+                            }
+                            ?>
+                        </span>
+                    </td>
+                    <td>
+                        <?php
+                        foreach ($data['users'] as $k => $v) {
+                            if($v['id'] == $value['modified_id']){
+                                echo $v['full_name'];
+                            }
+                        }
+                        ?>
+                    </td>
+                    <td><?php echo $value['modified_at']?></td>
+                    <td>
+                        <button type="button" name="update" value="<?php echo $value['id']?>" class="btn btn-outline-info my-2 my-sm-0" onclick="btn_update(this);" >Update</button>
+                    </td>
+                    <td>
+                        <form action="<?php echo BASE_URL?>/Subject/delete" method="post">
+                            <button type="submit" name="delete" value="<?php echo $value['id']?>" class="btn btn-outline-danger my-2 my-sm-0" onclick="return confirm('Do u really want to delete')" >Delete</button>
+                        </form>
+                    </td>
                 </tr>
-
+            <?php }?>
             </tbody>
         </table>
-
-
-
-        <div class="col crtbtn">
-            <button type="button" name="btncreateuni" class="btn btn-outline-dark my-2 my-sm-0 crtbtn" data-toggle="modal" data-target="#create"  data-whatever="@mdo">Create new</button>
-        </div>
-
-
-        <!--                modals start-->
-        <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="update" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+    </div>
+    <div class="col crtbtn">
+        <button type="button" id="add_button" data-toggle="modal" data-target="#dataModal" class="btn btn-outline-dark my-2 my-sm-0 crtbtn" onclick="btn_add(this);">Add</button>
+    </div>
+    <div id="dataModal" class="modal fade">
+        <div class="modal-dialog">
+            <form method="post" id="data_form" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="update">Update </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <h4 class="modal-title"><span id="modal_title">Add Subject</span></h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="SubCode" class="form-control-label">Subject Code</label>
-                                <input type="text" class="form-control" id="subcode">
-                            </div>
-                            <div class="form-group">
-                                <label for="Subname" class="form-control-label">Subject Name</label>
-                                <input type="text" class="form-control" id="subcode">
-                            </div>
-                            <div class="form-group">
-                                <label for="SubType" class="form-control-label">Subject Type</label>
-                                <input type="text" class="form-control" id="subcode">
-                            </div>
-                        </form>
+                        <label for="sub_code" id="lbl_sub_code">Enter code</label>
+                        <input autofocus="autofocus" type="text" name="sub_code" id="sub_code" class="form-control" va/>
+                        <br />
+                        <label for="sub_name" id="lbl_sub_name">Enter name </label>
+                        <input type="text" name="sub_name" id="sub_name" class="form-control" va/>
+                        <br />
+                        <label for="sub_type" id="lbl_sub_type">Select type</label>
+                        <select class="form-control" id="sub_type" name="sub_type" title="subject_type">
+                            <?php foreach ($data['type'] as $key => $value){?>
+                                <option value="<?php echo $value['id']?>"><?php echo $value['type']?></option>
+                            <?php } ?>
+
+                        </select>
+                        <br />
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-outline-primary">Save</button>
+                        <input type="hidden" name="sub_id" id="sub_id" />
+                        <input type="submit" name="action" id="action" class="btn btn-outline-info" value="Add" />
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
-
-        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="update" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="delete">Delete</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Are you sure?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-danger">Yes</button>
-                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">No</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="create" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="create">Create </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="SubCode" class="form-control-label">Subject Code</label>
-                                <input type="text" class="form-control" id="crtsubcode">
-                            </div>
-                            <div class="form-group">
-                                <label for="Subname" class="form-control-label">Subject Name</label>
-                                <input type="text" class="form-control" id="crtsubcode">
-                            </div>
-                            <div class="form-group">
-                                <label for="SubType" class="form-control-label">Subject Type</label>
-                                <input type="text" class="form-control" id="crtsubcode">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-outline-primary">Save</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--                modals end-->
-
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('#sub_table').DataTable({
+            "columnDefs":[
+                {
+                    "targets":[3, 4],
+                    "orderable":false,
+                }
+            ]
+        });
+    });
+
+    function btn_update(asd) {
+        var parent = asd.parentNode.parentNode;
+        var btn = parent.childNodes[11];
+        var btnValue = btn.childNodes[1].value;
+        var sub_code = parent.childNodes[1].childNodes[1].innerText;
+        var sub_name = parent.childNodes[3].childNodes[1].innerText;
+        var sub_type = parent.childNodes[5].childNodes[1].innerText;
+        $('#dataModal').modal('show');
+        $('#data_form').attr('action','http://localhost/se_addmission/Subject/update');
+        $('#modal_title').text('Update Subject');
+        $('#lbl_sub_code').text('Update code');
+        $('#lbl_sub_name').text('Update name');
+        $('#lbl_sub_type').text('Change Type');
+        $('#sub_code').val(sub_code);
+        $('#sub_name').val(sub_name);
+        $('#sub_type').val(sub_type);
+        $('#sub_id').val(btnValue);
+    }
+
+    function btn_add(asd) {
+        $('#dataModal').modal('show');
+        $('#data_form').attr('action','http://localhost/se_addmission/Subject/addNew');
+        $('#modal_title').text('Add Subject');
+        $('#lbl_sub_code').text('Enter code');
+        $('#lbl_sub_name').text('Enter name');
+        $('#lbl_sub_type').text('Select Type');
+        $('#sub_code').val("");
+        $('#sub_name').val("");
+        $('#sub_type').val("");
+        $('#sub_id').val("");
+    }
+
+</script>

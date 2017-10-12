@@ -4,7 +4,7 @@
         <table id="session_table" class="table">
             <thead>
             <tr>
-                <th >Session</th>
+                <th >Subject Type</th>
                 <th >Modified by</th>
                 <th >Modified At</th>
                 <th >Edit</th>
@@ -14,7 +14,7 @@
             <tbody>
             <?php foreach ($data['list'] as $key => $value){?>
                 <tr>
-                    <td> <span><?php echo $value['session']?></span> </td>
+                    <td> <span><?php echo $value['type']?></span> </td>
                     <td>
                         <?php
                         foreach ($data['users'] as $k => $v) {
@@ -29,7 +29,7 @@
                         <button type="button" name="update" value="<?php echo $value['id']?>" class="btn btn-outline-info my-2 my-sm-0" onclick="btn_update(this);" >Update</button>
                     </td>
                     <td>
-                        <form action="<?php echo BASE_URL?>/Usession/delete" method="post">
+                        <form action="<?php echo BASE_URL?>/Quota/delete" method="post">
                             <button type="submit" name="delete" value="<?php echo $value['id']?>" class="btn btn-outline-danger my-2 my-sm-0" onclick="return confirm('Do u really want to delete')" >Delete</button>
                         </form>
                     </td>
@@ -46,11 +46,11 @@
             <form method="post" id="data_form" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title"><span id="modal_title">Add Session</span></h4>
+                        <h4 class="modal-title"><span id="modal_title">Add Procedure</span></h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <label for="session_name" id="lbl_session">Enter Session</label>
+                        <label for="session_name" id="lbl_session">Enter procedure name</label>
                         <input autofocus="autofocus" type="text" name="session_name" id="session_name" class="form-control" va/>
                         <br />
                     </div>
@@ -84,8 +84,8 @@
         var nameText = name.childNodes[1].innerText;
         console.log(btnValue.value);
         $('#dataModal').modal('show');
-        $('#data_form').attr('action','http://localhost/se_addmission/Usession/update');
-        $('#modal_title').text('Update Session');
+        $('#data_form').attr('action','http://localhost/se_addmission/Quota/update');
+        $('#modal_title').text('Update Procedure');
         $('#lbl_session').text('Update this entry');
         $('#session_name').val(nameText);
         $('#session_id').val(btnValue.value);
@@ -94,9 +94,9 @@
 
     function btn_add(asd) {
         $('#dataModal').modal('show');
-        $('#data_form').attr('action','http://localhost/se_addmission/Usession/addNew');
-        $('#modal_title').text('Add Session');
-        $('#lbl_session').text('Add New Session');
+        $('#data_form').attr('action','http://localhost/se_addmission/Quota/addNew');
+        $('#modal_title').text('Add Procedure');
+        $('#lbl_session').text('Enter new procedure');
         $('#session_id').val("");
         $('#session_name').val("");
         $('#action').val('Add');

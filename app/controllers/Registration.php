@@ -9,7 +9,7 @@
 class Registration extends MainController{
     public function __construct(){
         parent::__construct();
-//        Session::checkSession();
+//        Usession::checkSession();
     }
 
     public function Index(){
@@ -112,12 +112,12 @@ class Registration extends MainController{
                 ];
                 $res = $simpleModel->insert('student',$data);
                 if($res){
-                    Session::init();
-                    Session::set('login', 'true');
-                    Session::set('user_id', $lastId);
-                    Session::set('student_id', $res);
-                    Session::set('user_role', 'student');
-                    Session::set('password', md5($password));
+                    Usession::init();
+                    Usession::set('login', 'true');
+                    Usession::set('user_id', $lastId);
+                    Usession::set('student_id', $res);
+                    Usession::set('user_role', 'student');
+                    Usession::set('password', md5($password));
                     header("Location: ".BASE_URL."/Index");
                 }
 
