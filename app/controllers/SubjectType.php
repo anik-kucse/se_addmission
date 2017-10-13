@@ -21,7 +21,7 @@ class SubjectType extends MainController
         $this->load->view("partials/header", $data);
 
         $simpleModel = $this->load->model('SimpleModel');
-        $table['list'] = $simpleModel->getAll('subject_type');
+        $table['list'] = $simpleModel->getAll('exam_type');
         $table['users'] = $simpleModel->getAll('users');
 
         $this->load->view("admin/subject_type", $table);

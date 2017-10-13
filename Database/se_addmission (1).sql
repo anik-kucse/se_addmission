@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2017 at 05:17 AM
+-- Generation Time: Oct 13, 2017 at 05:15 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -40,6 +40,27 @@ CREATE TABLE `board` (
 INSERT INTO `board` (`id`, `name`, `modified_by`, `modified_at`) VALUES
 (36, 'Dhaka', 15, '2017-10-11 14:32:37'),
 (38, 'Jessore', 15, '2017-10-11 14:32:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exam_type`
+--
+
+CREATE TABLE `exam_type` (
+  `id` int(11) NOT NULL,
+  `type` varchar(10) NOT NULL,
+  `modified_by` int(11) NOT NULL,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `exam_type`
+--
+
+INSERT INTO `exam_type` (`id`, `type`, `modified_by`, `modified_at`) VALUES
+(2, 'HSC', 15, '2017-10-11 23:46:48'),
+(4, 'SSC', 15, '2017-10-12 00:33:35');
 
 -- --------------------------------------------------------
 
@@ -237,9 +258,9 @@ CREATE TABLE `student_quota` (
 
 CREATE TABLE `subject` (
   `id` int(11) NOT NULL,
-  `code` int(5) DEFAULT NULL,
+  `code` varchar(256) DEFAULT NULL,
   `name` varchar(20) NOT NULL,
-  `subject_type_id` int(11) NOT NULL,
+  `exam_type_id` int(11) NOT NULL,
   `modified_id` int(11) NOT NULL,
   `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -248,30 +269,9 @@ CREATE TABLE `subject` (
 -- Dumping data for table `subject`
 --
 
-INSERT INTO `subject` (`id`, `code`, `name`, `subject_type_id`, `modified_id`, `modified_at`) VALUES
-(1, 245, 'English', 2, 15, '2017-10-12 02:02:12'),
-(2, 2124, 'asdasd', 4, 15, '2017-10-12 03:12:52');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `subject_type`
---
-
-CREATE TABLE `subject_type` (
-  `id` int(11) NOT NULL,
-  `type` varchar(10) NOT NULL,
-  `modified_by` int(11) NOT NULL,
-  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `subject_type`
---
-
-INSERT INTO `subject_type` (`id`, `type`, `modified_by`, `modified_at`) VALUES
-(2, 'HSC', 15, '2017-10-11 23:46:48'),
-(4, 'SSC', 15, '2017-10-12 00:33:35');
+INSERT INTO `subject` (`id`, `code`, `name`, `exam_type_id`, `modified_id`, `modified_at`) VALUES
+(2, '2124', 'asdasd', 4, 15, '2017-10-12 03:12:52'),
+(4, '878146', 'pppppp', 2, 15, '2017-10-12 03:24:23');
 
 -- --------------------------------------------------------
 
@@ -284,7 +284,7 @@ CREATE TABLE `unit` (
   `university_id` int(11) NOT NULL,
   `session_id` int(11) NOT NULL,
   `unit_name` varchar(256) NOT NULL,
-  `start_date_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `start_date_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `end_date_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `selection_date_time` timestamp NULL DEFAULT NULL,
   `exam_date_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -292,8 +292,15 @@ CREATE TABLE `unit` (
   `service_charge` decimal(7,2) NOT NULL,
   `detail` text NOT NULL,
   `modified_by` int(11) NOT NULL,
-  `modified_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `unit`
+--
+
+INSERT INTO `unit` (`id`, `university_id`, `session_id`, `unit_name`, `start_date_time`, `end_date_time`, `selection_date_time`, `exam_date_time`, `form_price`, `service_charge`, `detail`, `modified_by`, `modified_at`) VALUES
+(1, 4, 5, 'Set Schooll', '2017-08-15 18:00:00', '2017-10-04 17:59:59', '2017-10-25 18:00:00', '2017-10-24 03:30:00', '700.00', '50.00', 'I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. I live in Khulna :(. ', 15, '2017-10-12 10:06:16');
 
 -- --------------------------------------------------------
 
@@ -387,6 +394,12 @@ ALTER TABLE `board`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `exam_type`
+--
+ALTER TABLE `exam_type`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `form_sell`
 --
 ALTER TABLE `form_sell`
@@ -456,13 +469,7 @@ ALTER TABLE `student_quota`
 --
 ALTER TABLE `subject`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `subject_type_id` (`subject_type_id`);
-
---
--- Indexes for table `subject_type`
---
-ALTER TABLE `subject_type`
-  ADD PRIMARY KEY (`id`);
+  ADD KEY `subject_type_id` (`exam_type_id`);
 
 --
 -- Indexes for table `unit`
@@ -510,6 +517,11 @@ ALTER TABLE `users`
 ALTER TABLE `board`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
+-- AUTO_INCREMENT for table `exam_type`
+--
+ALTER TABLE `exam_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `form_sell`
 --
 ALTER TABLE `form_sell`
@@ -518,7 +530,7 @@ ALTER TABLE `form_sell`
 -- AUTO_INCREMENT for table `procedure_list`
 --
 ALTER TABLE `procedure_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `profile_picture`
 --
@@ -558,17 +570,12 @@ ALTER TABLE `student_quota`
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `subject_type`
---
-ALTER TABLE `subject_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `unit_prosedure_list`
 --
@@ -638,7 +645,7 @@ ALTER TABLE `student_quota`
 -- Constraints for table `subject`
 --
 ALTER TABLE `subject`
-  ADD CONSTRAINT `subject_ibfk_1` FOREIGN KEY (`subject_type_id`) REFERENCES `subject_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `subject_ibfk_1` FOREIGN KEY (`exam_type_id`) REFERENCES `exam_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `unit`

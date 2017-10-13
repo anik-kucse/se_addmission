@@ -19,11 +19,11 @@
                     <td> <span><?php echo $value['code']?></span> </td>
                     <td> <span><?php echo $value['name']?></span> </td>
                     <td>
-                        <span style="display: none"><?php echo $value['subject_type_id']?></span>
+                        <span style="display: none"><?php echo $value['exam_type_id']?></span>
                         <span>
                             <?php
                             foreach ($data['type'] as $k => $v){
-                                if($v['id'] == $value['subject_type_id']){
+                                if($v['id'] == $value['exam_type_id']){
                                     echo $v['type'];
                                 }
                             }
@@ -109,6 +109,7 @@
         var sub_code = parent.childNodes[1].childNodes[1].innerText;
         var sub_name = parent.childNodes[3].childNodes[1].innerText;
         var sub_type = parent.childNodes[5].childNodes[1].innerText;
+        console.log(sub_type);
         $('#dataModal').modal('show');
         $('#data_form').attr('action','http://localhost/se_addmission/Subject/update');
         $('#modal_title').text('Update Subject');
@@ -119,6 +120,7 @@
         $('#sub_name').val(sub_name);
         $('#sub_type').val(sub_type);
         $('#sub_id').val(btnValue);
+        $('#action').val('Update');
     }
 
     function btn_add(asd) {
@@ -132,6 +134,7 @@
         $('#sub_name').val("");
         $('#sub_type').val("");
         $('#sub_id').val("");
+        $('#action').val('Add');
     }
 
 </script>
