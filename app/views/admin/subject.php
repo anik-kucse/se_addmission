@@ -6,7 +6,7 @@
             <tr>
                 <th >Code</th>
                 <th >Name</th>
-                <th >Type</th>
+                <th >Exam type</th>
                 <th >Modified by</th>
                 <th >Modified At</th>
                 <th >Edit</th>
@@ -95,7 +95,7 @@
         $('#sub_table').DataTable({
             "columnDefs":[
                 {
-                    "targets":[3, 4],
+                    "targets":[5, 6],
                     "orderable":false,
                 }
             ]

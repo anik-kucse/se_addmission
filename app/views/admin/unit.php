@@ -184,7 +184,7 @@
         $('#data_table').DataTable({
             "columnDefs":[
                 {
-                    "targets":[3, 4],
+                    "targets":[9,12, 13],
                     "orderable":false,
                 }
             ]

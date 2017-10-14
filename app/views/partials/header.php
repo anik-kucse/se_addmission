@@ -32,31 +32,31 @@
         <div class="col-3" id="sidebar">
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">University</a>
+                    <a href="<?php echo BASE_URL?>/university" class="nav-link active">University</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Unit</a>
+                    <a href="<?php echo BASE_URL?>/unit" class="nav-link">Unit</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Session</a>
+                    <a href="<?php echo BASE_URL?>/usession" class="nav-link">Session</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Subject</a>
+                    <a href="<?php echo BASE_URL?>/subject" class="nav-link">Subject</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Subject type</a>
+                    <a href="<?php echo BASE_URL?>/subjectType" class="nav-link">Exam type</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Board</a>
+                    <a href="<?php echo BASE_URL?>/board" class="nav-link">Board</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Student quota</a>
+                    <a href="<?php echo BASE_URL?>/Quota" class="nav-link">Student quota</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo BASE_URL?>/procedureList" class="nav-link">Procedure list</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Form sell</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Procedure list</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Unit procedure list</a>

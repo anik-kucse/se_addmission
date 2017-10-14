@@ -4,7 +4,7 @@
         <table id="session_table" class="table">
             <thead>
             <tr>
-                <th >Subject Type</th>
+                <th >University Name</th>
                 <th >Modified by</th>
                 <th >Modified At</th>
                 <th >Edit</th>
