@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h1 style="text-align: center">Registration</h1>
+    <h1 style="text-align: center">Account Manage</h1>
     <form class="row justify-content-around" style="padding-top: 10px">
 
         <div class="col-8 form-group row">
