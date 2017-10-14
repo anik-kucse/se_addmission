@@ -11,8 +11,12 @@ class SimpleModel extends MainModel {
         parent::__construct();
     }
 
-    public function getAll($table){
-        $sql = "SELECT * FROM $table";
+    public function getAll($table, $cond = false){
+        if($cond){
+            $sql = "SELECT * FROM $table WHERE $cond";
+        }else{
+            $sql = "SELECT * FROM $table";
+        }
         return $this->db->select($sql);
     }
 

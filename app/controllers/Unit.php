@@ -15,12 +15,22 @@ class Unit extends MainController{
         self::unit();
     }
 
-    public function unit(){
+    public function unit($value = false){
         $pageName=['pageName' => 'Unit'];
         $this->load->view('partials/header', $pageName);
 
         $simpleModel = $this->load->model('SimpleModel');
-        $table['list'] = $simpleModel->getAll('unit');
+        $exploded = explode('=', $value);
+
+        if($exploded[0] == 'university'){
+            $cond = "university_id = $exploded[1]";
+            $table['list'] = $simpleModel->getAll('unit', $cond);
+        }elseif ($exploded[0] == 'session'){
+            $cond = "session_id = $exploded[1]";
+            $table['list'] = $simpleModel->getAll('unit', $cond);
+        }else{
+            $table['list'] = $simpleModel->getAll('unit');
+        }
         $table['university'] = $simpleModel->getAll('university');
         $table['session'] =$simpleModel->getAll('session');
         $table['users'] =$simpleModel->getAll('users');
@@ -83,6 +93,8 @@ class Unit extends MainController{
         if ($res) {
             header('Location:' . BASE_URL . '/unit');
         } else {
+            var_dump($data);
+            var_dump($cond);
             var_dump($res);
         }
     }

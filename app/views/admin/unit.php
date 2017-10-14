@@ -25,32 +25,50 @@
             <?php foreach ($data['list'] as $key => $value){?>
                 <tr>
                     <td><span><?php echo $value['unit_name']?></span></td>
-                    <td><span><?php $value['']?></span>
+                    <td><span style="display: none"><?php echo $value['university_id']?></span>
                         <?php
                         foreach ($data['university'] as $k => $v){
                             if($v['id'] == $value['university_id']){
-                                echo $v['name'];
+                                ?>
+                                <a href="<?php echo BASE_URL?>/Unit/unit/university=<?php echo $value['university_id']?>"><?php echo $v['name'];?></a>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </td>
+                    <td><span style="display: none"><?php echo $value['session_id']?></span>
+                        <?php
+                        foreach ($data['session'] as $k => $v){
+                            if($v['id'] == $value['session_id']){
+                                ?>
+                                <a href="<?php echo BASE_URL?>/Unit/unit/session=<?php echo $value['session_id']?>"><?php echo $v['session'];?></a>
+                                <?php
                             }
                         }
                         ?>
                     </td>
                     <td>
-                        <?php
-                        echo $value['session_id'];
-                        foreach ($data['session'] as $k => $v){
-                            if($v['id'] == $value['session_id']){
-                                echo $v['session'];
-                            }
-                        }
-                        ?>
+                        <span style="display: none"><?php echo  date( 'Y-m-d\TH:i', strtotime($value['start_date_time'])); ?></span>
+                        <span><?php echo $value['start_date_time']?></span>
                     </td>
-                    <td><span><?php echo $value['start_date_time']?></span></td>
-                    <td><span><?php echo $value['end_date_time']?></span></td>
-                    <td><span><?php echo $value['selection_date_time']?></span></td>
-                    <td><span><?php echo $value['exam_date_time']?></span></td>
+                    <td>
+                        <span style="display: none"><?php echo  date( 'Y-m-d\TH:i', strtotime($value['end_date_time'])); ?></span>
+                        <span><?php echo $value['end_date_time']?></span>
+                    </td>
+                    <td>
+                        <span style="display: none"><?php echo  date( 'Y-m-d\TH:i', strtotime($value['selection_date_time'])); ?></span>
+                        <span><?php echo $value['selection_date_time']?></span>
+                    </td>
+                    <td>
+                        <span style="display: none"><?php echo  date( 'Y-m-d\TH:i', strtotime($value['exam_date_time'])); ?></span>
+                        <span><?php echo $value['exam_date_time']?></span>
+                    </td>
                     <td><span><?php echo $value['form_price']?></span></td>
                     <td><span><?php echo $value['service_charge']?></span></td>
-                    <td><?php echo substr($value['detail'], 0, 20);?></td>
+                    <td>
+                        <span style="display: none"><?php echo $value['detail']?></span>
+                        <span><?php echo substr($value['detail'], 0, 20);?></span>
+                    </td>
                     <td>
                         <?php
                         foreach ($data['users'] as $k => $v){
@@ -145,7 +163,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="details" class="form-control-label">Details</label>
-                                    <input type="text" class="form-control" id="details" name="details">
+                                    <textarea rows="4" class="form-control" name="details" id="details"></textarea>
                                 </div>
                             </form>
                         </div>
@@ -176,26 +194,31 @@
     function btn_update(asd) {
         var parent = asd.parentNode.parentNode;
         var btn = parent.childNodes[25];
-        var btnValue = btn.childNodes[1];
+        var btnValue = btn.childNodes[1].value;
         var unit_name = parent.childNodes[1].childNodes[0].innerText;
-        var university_id = parent.childNodes[3];
-//        var sub_name = parent.childNodes[3].childNodes[1].innerText;
-//        var sub_name = parent.childNodes[3].childNodes[1].innerText;
-//        var sub_type = parent.childNodes[5].childNodes[1].innerText;
-        console.log(parent);
+        var university_id = parent.childNodes[3].childNodes[0].innerText;
+        var session_id = parent.childNodes[5].childNodes[0].innerText;
+        var start_time = parent.childNodes[7].childNodes[1].innerText;
+        var end_time = parent.childNodes[9].childNodes[1].innerText;
+        var selection_time = parent.childNodes[11].childNodes[1].innerText;
+        var exam_time = parent.childNodes[13].childNodes[1].innerText;
+        var form_price = parent.childNodes[15].childNodes[0].innerText;
+        var service_charge = parent.childNodes[17].childNodes[0].innerText;
+        var detail = parent.childNodes[19].childNodes[1].innerText;
+        console.log(btnValue);
         $('#dataModal').modal('show');
         $('#data_form').attr('action','http://localhost/se_addmission/Unit/update');
         $('#modal_title').text('Update Unit');
         $('#unit_name').val(unit_name);
-        $('#university').val("");
-        $('#session').val("");
-        $('#starting_time').val("");
-        $('#ending_time').val("");
-        $('#selection_time').val("");
-        $('#exam_time').val("");
-        $('#form_price').val("");
-        $('#service_charge').val("");
-        $('#details').val("");
+        $('#university').val(university_id);
+        $('#session').val(session_id);
+        $('#starting_time').val(start_time);
+        $('#ending_time').val(end_time);
+        $('#selection_time').val(selection_time);
+        $('#exam_time').val(exam_time);
+        $('#form_price').val(form_price);
+        $('#service_charge').val(service_charge);
+        $('#details').val(detail);
         $('#unit_id').val(btnValue);
         $('#action').val('Update');
     }
