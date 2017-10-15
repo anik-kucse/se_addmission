@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="contain-fluid">
     <h1 style="text-align: center">Account Manage</h1>
     <form class="row justify-content-around" style="padding-top: 10px">
 
@@ -175,7 +175,7 @@
                 </tbody>
             </table>
         </div>
-		
+
 		<div id="dataModal" class="modal fade">
             <div class="modal-dialog">
                 <form method="post" id="data_form" enctype="multipart/form-data">
@@ -216,11 +216,11 @@
                 </form>
             </div>
         </div>
-		
+
 		<div class="col-8 justify-content-around form-group row">
             <p>Do you wanna Change your Password?  <a href = "#" style = "color:red" data-toggle="modal" data-target="#ChangePassword"> Yes</a></p>
         </div>
-		
+
 		<div id="ChangePassword" class="modal fade">
             <div class="modal-dialog">
                 <form method="post" id="data_form" enctype="multipart/form-data">
