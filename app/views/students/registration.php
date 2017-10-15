@@ -181,7 +181,7 @@
                             <?php }?>
                         </select>
                     </td>
-                    <td><input class="form-control" type="text" " id="sscyear" name="sscyear" placeholder="SSC Year"></td>
+                    <td><input class="form-control" type="text" id="sscyear" name="sscyear" placeholder="SSC Year"></td>
                     <td><input class="form-control" type="number" id="sscregno" name="sscregno" placeholder="SSS Registration No"></td>
                     <td><input class="form-control" type="number" id="sscrollno" name="sscrollno" placeholder="SSC Roll No"></td>
                     <td><input class="form-control" type="text" id="sscgpa" name="sscgpa" placeholder="SSC GPA"></td>
