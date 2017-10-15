@@ -166,121 +166,121 @@
         </div>
 
 		<div id="dataModal" class="modal fade">
-        <div class="modal-dialog">
-            <form method="post" id="data_form" enctype="multipart/form-data">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title"><span id="modal_title">Insert Result</span></h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="modal-dialog">
+                <form method="post" id="data_form" enctype="multipart/form-data">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title"><span id="modal_title">Insert Result</span></h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-12 form-group row">
+    				            <table class="table table-light table-responsive">
+    				                <thead>
+    				                <tr>
+    				                    <th>Subject Code</th>
+    				                    <th>Subject Name</th>
+    				                    <th>Grade</th>
+    				                    <th>Marks</th>
+    				                </tr>
+    				                </thead>
+    				                <tbody>
+    					                <tr>
+    					                    <td>
+    					                    	<select class="form-control" id="grade" name="grade">
+    							                    <option value="1">Ban-101</option>
+    							                    <option value="2">Eng-107</option>
+    							                    <option value="3">Math-128</option>
+    						                	</select>
+    					                    </td>
+    					                    <td>
+    					                    	<select class="form-control" id="grade" name="grade">
+    							                    <option value="1">Bangla</option>
+    							                    <option value="2">English</option>
+    							                    <option value="3">Math</option>
+    						                	</select>
+    					                    </td>
+    					                    <td>
+    					                    	<select class="form-control" id="grade" name="grade">
+    							                    <option value="1">A</option>
+    							                    <option value="2">A+</option>
+    							                    <option value="3">B</option>
+    						                	</select>
+    						                </td>
+    						                <td>
+    					                    	<input type="number" class="form-control" name="marks" id="marks">
+    						                </td>
+    					                </tr>
+    					                <tr>
+    					                    <td>
+    					                    	<select class="form-control" id="grade" name="grade">
+    							                    <option value="1">Ban-101</option>
+    							                    <option value="2">Eng-107</option>
+    							                    <option value="3">Math-128</option>
+    						                	</select>
+    					                    </td>
+    					                    <td>
+    					                    	<select class="form-control" id="grade" name="grade">
+    							                    <option value="1">Bangla</option>
+    							                    <option value="2">English</option>
+    							                    <option value="3">Math</option>
+    						                	</select>
+    					                    </td>
+    					                    <td>
+    					                    	<select class="form-control" id="grade" name="grade">
+    							                    <option value="1">A</option>
+    							                    <option value="2">A+</option>
+    							                    <option value="3">B</option>
+    						                	</select>
+    						                </td>
+    						                <td>
+    					                    	<input type="number" class="form-control" name="marks" id="marks">
+    						                </td>
+    					                </tr>
+    					                <tr>
+    					                    <td>
+    					                    	<select class="form-control" id="grade" name="grade">
+    							                    <option value="1">Ban-101</option>
+    							                    <option value="2">Eng-107</option>
+    							                    <option value="3">Math-128</option>
+    						                	</select>
+    					                    </td>
+    					                    <td>
+    					                    	<select class="form-control" id="grade" name="grade">
+    							                    <option value="1">Bangla</option>
+    							                    <option value="2">English</option>
+    							                    <option value="3">Math</option>
+    						                	</select>
+    					                    </td>
+    					                    <td>
+    					                    	<select class="form-control" id="grade" name="grade">
+    							                    <option value="1">A</option>
+    							                    <option value="2">A+</option>
+    							                    <option value="3">B</option>
+    						                	</select>
+    						                </td>
+    						                <td>
+    					                    	<input type="number" class="form-control" name="marks" id="marks">
+    						                </td>
+    					                </tr>
+    				                </tbody>
+    				            </table>
+    				        </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="result_id" id="result_id" />
+                            <input type="submit" name="action" id="action" class="btn btn-outline-info" value="Save" />
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <div class="col-12 form-group row">
-				            <table class="table table-light table-responsive">
-				                <thead>
-				                <tr>
-				                    <th>Subject Code</th>
-				                    <th>Subject Name</th>
-				                    <th>Grade</th>
-				                    <th>Marks</th>
-				                </tr>
-				                </thead>
-				                <tbody>
-					                <tr>
-					                    <td>
-					                    	<select class="form-control" id="grade" name="grade">
-							                    <option value="1">Ban-101</option>
-							                    <option value="2">Eng-107</option>
-							                    <option value="3">Math-128</option>
-						                	</select>
-					                    </td>
-					                    <td>
-					                    	<select class="form-control" id="grade" name="grade">
-							                    <option value="1">Bangla</option>
-							                    <option value="2">English</option>
-							                    <option value="3">Math</option>
-						                	</select>
-					                    </td>
-					                    <td>
-					                    	<select class="form-control" id="grade" name="grade">
-							                    <option value="1">A</option>
-							                    <option value="2">A+</option>
-							                    <option value="3">B</option>
-						                	</select>
-						                </td>
-						                <td>
-					                    	<input type="number" class="form-control" name="marks" id="marks">
-						                </td>
-					                </tr>
-					                <tr>
-					                    <td>
-					                    	<select class="form-control" id="grade" name="grade">
-							                    <option value="1">Ban-101</option>
-							                    <option value="2">Eng-107</option>
-							                    <option value="3">Math-128</option>
-						                	</select>
-					                    </td>
-					                    <td>
-					                    	<select class="form-control" id="grade" name="grade">
-							                    <option value="1">Bangla</option>
-							                    <option value="2">English</option>
-							                    <option value="3">Math</option>
-						                	</select>
-					                    </td>
-					                    <td>
-					                    	<select class="form-control" id="grade" name="grade">
-							                    <option value="1">A</option>
-							                    <option value="2">A+</option>
-							                    <option value="3">B</option>
-						                	</select>
-						                </td>
-						                <td>
-					                    	<input type="number" class="form-control" name="marks" id="marks">
-						                </td>
-					                </tr>
-					                <tr>
-					                    <td>
-					                    	<select class="form-control" id="grade" name="grade">
-							                    <option value="1">Ban-101</option>
-							                    <option value="2">Eng-107</option>
-							                    <option value="3">Math-128</option>
-						                	</select>
-					                    </td>
-					                    <td>
-					                    	<select class="form-control" id="grade" name="grade">
-							                    <option value="1">Bangla</option>
-							                    <option value="2">English</option>
-							                    <option value="3">Math</option>
-						                	</select>
-					                    </td>
-					                    <td>
-					                    	<select class="form-control" id="grade" name="grade">
-							                    <option value="1">A</option>
-							                    <option value="2">A+</option>
-							                    <option value="3">B</option>
-						                	</select>
-						                </td>
-						                <td>
-					                    	<input type="number" class="form-control" name="marks" id="marks">
-						                </td>
-					                </tr>
-				                </tbody>
-				            </table>
-				        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="hidden" name="result_id" id="result_id" />
-                        <input type="submit" name="action" id="action" class="btn btn-outline-info" value="Save" />
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
 
-		<div class="col-8 justify-content-around form-group row">
+    	<div class="col-8 justify-content-around form-group row">
             <p>Do you wanna Change your Password?  <a href = "#" style = "color:red" data-toggle="modal" data-target="#ChangePassword"> Yes</a></p>
         </div>
 
-		<div id="ChangePassword" class="modal fade">
+    	<div id="ChangePassword" class="modal fade">
             <div class="modal-dialog">
                 <form method="post" id="data_form" enctype="multipart/form-data">
                     <div class="modal-content">
@@ -289,18 +289,18 @@
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
-                            <label for="session_name" id="lbl_session">Current Password</label>
-                            <input autofocus="autofocus" type="text" class="form-control" va/>
+                            <label for="password_name" id="lbl_password">Current Password</label>
+                            <input autofocus="autofocus" type="password" class="form-control" va/>
                             <br />
                         </div>
     					<div class="modal-body">
-                            <label for="session_name" id="lbl_session">New Password</label>
-                            <input autofocus="autofocus" type="text" class="form-control" va/>
+                            <label for="password_name" id="lbl_password">New Password</label>
+                            <input autofocus="autofocus" type="password" class="form-control" va/>
                             <br />
                         </div>
     					<div class="modal-body">
-                            <label for="session_name" id="lbl_session">Confirm Password</label>
-                            <input autofocus="autofocus" type="text" class="form-control" va/>
+                            <label for="password_name" id="lbl_password">Confirm Password</label>
+                            <input autofocus="autofocus" type="password" class="form-control" va/>
                             <br />
                         </div>
                         <div class="modal-footer">
