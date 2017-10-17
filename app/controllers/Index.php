@@ -26,12 +26,6 @@ class Index extends MainController
         $this->load->view('students/accountManage');
         $this->load->view('partials/footer');
     }
-    public function dataEntryAccountManage()
-    {
-        $pageName = ['pageName' => 'Account Manage'];
-        $this->load->view('partials/header', $pageName);
-        $this->load->view('data-entry/accountManage');
-        $this->load->view('partials/footer');
-    }
+
 
 }

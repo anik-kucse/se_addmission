@@ -1,18 +1,18 @@
 <div class="container">
     <h1 style="text-align: center">Account Manage</h1>
-    <form class="row justify-content-around" style="padding-top: 10px">
+    <div class="row justify-content-around" style="padding-top: 10px">
 
         <div class="col-12 row">
 	        <div class="col-6 from-control row">
 	        	<label for="fullname" class="col-4 col-form-label">Full Name</label>
 	            <div class="col-8">
-	                <label class="form-control" type="text" id="fullname" name="fullname" >dfsgkjdsbfkj</label>
+	                <label class="form-control" type="text" id="fullname" name="fullname" ><?php echo $data['user'][0]['full_name']?></label>
 	            </div>
 	        </div>
 	        <div class="col-6 from-control row">
 	        	 <label for="username" class="col-4 col-form-label">Username</label>
 	            <div class="col-8">
-	                <label class="form-control" type="text" id="username" name="username" >jsdfgkjdsgfkj</label>
+	                <label class="form-control" type="text" id="username" name="username" ><?php echo $data['user'][0]['user_name']?></label>
 	            </div>
 	        </div>    
         </div>
@@ -21,13 +21,13 @@
             <div class="col-6 form-group row">
 	            <label for="fathername" class="col-4 col-form-label">Father's Name</label>
 	            <div class="col-8">
-	                <label class="form-control" type="text" id="fathername" name="fathername" >jhdgfjds</label>
+	                <label class="form-control" type="text" id="fathername" name="fathername" ><?php echo $data['student'][0]['father_name']?></label>
 	            </div>
 	        </div>
 	        <div class="col-6 from-control row">
 	        	<label for="mothername" class="col-4 col-form-label">Mother's Name</label>
             	<div class="col-8">
-                	<label class="form-control" type="text" id="mothername" name="mothername" >fhdkfhdsjkh</label>
+                	<label class="form-control" type="text" id="mothername" name="mothername" ><?php echo $data['student'][0]['mother_name']?></label>
            		</div>
 	        </div>
         </div>
@@ -37,7 +37,11 @@
         		<span><b>Present Address</b></span>
         	</div>
         	<div class="col-10">
-        		<textarea class="form-control" >savdjhvsajfdjgsdsjfhgdshg</textarea>
+        		<textarea class="form-control" disabled="disabled"  >
+                    <?php
+                    echo $data['student'][0]['present_street_village'].", ".$data['student'][0]['present_Upozilla_thana'].", Post: ".$data['student'][0]['present_post_code'].", ".$data['student'][0]['present_district'].", ".$data['student'][0]['present_division'];
+                    ?>
+                </textarea>
         	</div>   
         </div>
         <br>
@@ -46,68 +50,94 @@
         		<span><b>Parmanent Address</b></span>
         	</div>
         	<div class="col-10">
-        		<textarea class="form-control" >savdjhvsajfdjgsdsjfhgdshg</textarea>
+        		<textarea disabled="disabled" class="form-control" >
+                    <?php
+                    echo $data['student'][0]['permanent_street_village'].", ".$data['student'][0]['permanent_Upozilla_thana'].", Post: ".$data['student'][0]['permanent_post_code'].", ".$data['student'][0]['permanent_district'].", ".$data['student'][0]['permanent_division'];
+                    ?>
+                </textarea>
         	</div>   
         </div>
         <br><br>
         <div class="col-12 form-group row">
             <label for="gender" class="col-2 col-form-label">Gender</label>
             <div class="col-10">
-				<label class="form-control" type="text" id="perdivision" name="perdivision" >dhfkjgd</label>
+				<label class="form-control" type="text" id="perdivision" name="perdivision" >
+                    <?php
+                    if($data['student'][0]['gender'] == '1'){
+                        echo "male";
+                    }elseif ($data['student'][0]['gender'] == '2'){
+                        echo "female";
+                    }elseif ($data['student'][0]['gender'] == '3'){
+                        echo "other";
+                    }
+                    ?>
+                </label>
             </div>
         </div>
         <br>
         <div class="col-12 form-group row">
             <label for="mobile" class="col-2 col-form-label">Mobile No</label>
             <div class="col-10">
-                <label class="form-control" type="text" pattern="[0-9]{11}" id="mobile" name="mobile" >74587</label>
+                <label class="form-control" type="text" pattern="[0-9]{11}" id="mobile" name="mobile" ><?php echo $data['student'][0]['mobile']?></label>
             </div>
         </div>
 
         <div class="col-12 form-group row">
             <label for="altermobile" class="col-2 col-form-label">Alternative Mobile No</label>
             <div class="col-10">
-                <label class="form-control" type="text" pattern="[0-9]{11}" id="altermobile" name="altermobile" >7654</label>
+                <label class="form-control" type="text" pattern="[0-9]{11}" id="altermobile" name="altermobile" ><?php echo $data['student'][0]['alternative_mobile']?></label>
             </div>
         </div>
 
         <div class="col-12 form-group row">
             <label for="fathermobile" class="col-2 col-form-label">Father's Mobile No</label>
             <div class="col-10">
-                <label class="form-control" type="text" pattern="[0-9]{11}" id="fathermobile" name="fathermobile" >7468</label>
+                <label class="form-control" type="text" pattern="[0-9]{11}" id="fathermobile" name="fathermobile" ><?php echo $data['student'][0]['father_mobile']?></label>
             </div>
         </div>
 
         <div class="col-12 form-group row">
-        <h4>SSC Result</h4>
+        <h4>SSC/O-Level Result</h4>
             <table class="table table-light table-responsive">
                 <thead>
-                <tr>
-                    <th></th>
-                    <th>Board</th>
-                    <th>Year</th>
-                    <th>Registration Number</th>
-                    <th>Roll Number</th>
-                    <th>GPA</th>
-					<th></th>
-					<th></th>
-                </tr>
+                    <tr>
+                        <th></th>
+                        <th>Board</th>
+                        <th>Year</th>
+                        <th>Registration Number</th>
+                        <th>Roll Number</th>
+                        <th>GPA</th>
+                        <th></th>
+                    </tr>
                 </thead>
                 <tbody>
 	                <tr>
-	                    <td>SSC</td>
-	                    <td><label class="form-control" type="text"  id="sscboard" name="sscboard" >hflkdhfkl</label></td>
-	                    <td><label class="form-control" type="text" id="sscyear" name="sscyear" >dhfkjsdhfl</label></td>
-	                    <td><label class="form-control" type="number" id="sscregno" name="sscregno" >shdfjdslabel></td>
-	                    <td><label class="form-control" type="number" id="sscrollno" name="sscrollno" >hdlkhf</label></td>
-	                    <td><label class="form-control" type="text" id="sscgpa" name="sscgpa" >sdjuugfiuedsgu</label></td>
+	                    <td>SSC/O-Level</td>
+	                    <td>
+                            <select class="form-control" name="sscboard" id="sscboard" title="SSC Board" disabled="disabled">
+                                <?php foreach ($data['board'] as $k => $v){?>
+                                    <option value="<?php $v['id']?>"><?php $v['name']?></option>
+                                <?php }?>
+                            </select>
+                        </td>
+	                    <td>
+                            <input class="form-control" type="text" id="sscyear" name="sscyear" disabled="disabled">
+                        </td>
+	                    <td>
+                            <input class="form-control" type="text" id="sscregno" name="sscregno" disabled="disabled">
+                        </td>
+	                    <td>
+                            <input class="form-control" type="text" id="sscrollno" name="sscrollno" disabled="disabled">
+                        </td>
+	                    <td>
+                            <input class="form-control" type="text" id="sscgpa" name="sscgpa"  disabled="disabled">
+                        </td>
 						<td><a href="#" data-toggle="modal" data-target="#dataModal">Edit</a></td>
-						<td><a href="#" id="sscresult" >Show</a></td>
 	                </tr>
                 </tbody>
             </table>
             <div class="col-12 form-group row" id="ssc_resultShow">
-            <h4>SSC Marks</h4>
+            <h4>SSC/A-level Marks</h4>
             	<table class="table table-light table-responsive">
                 <thead>
                 <tr>
@@ -128,7 +158,18 @@
             </table>
             </div>
             <table class="table table-light table-responsive">
-            <h4>HSC Result</h4>
+            <h4>HSC/O-level Result</h4>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Board</th>
+                    <th>Year</th>
+                    <th>Registration Number</th>
+                    <th>Roll Number</th>
+                    <th>GPA</th>
+                    <th>Edit</th>
+                </tr>
+                </thead>
             	<tbody>
 	                <tr>
 	                    <td>HSC</td>
@@ -138,12 +179,11 @@
 	                    <td><label class="form-control" type="text"  id="hscrollno" name="hscrollno" >dxgbckj</label></td>
 	                    <td><label class="form-control" type="text"  id="hscgpa" name="hscgpa">gfkjdsgbfkj</label></td>
 						<td><a href="#" data-toggle="modal" data-target="#dataModal">Edit</a></td>
-						<td><a href="#" >Show</a></td>
 	                </tr>
                 </tbody>
             </table>
             <div class="col-12 form-group row" id="hsc_resultShow">
-            <h4>SSC Marks</h4>
+            <h4>HSC/O-level Marks</h4>
             	<table class="table table-light table-responsive">
                 <thead>
                 <tr>
@@ -162,117 +202,6 @@
 	                </tr>
                 </tbody>
             </table>
-            </div>
-        </div>
-
-		<div id="dataModal" class="modal fade">
-            <div class="modal-dialog">
-                <form method="post" id="data_form" enctype="multipart/form-data">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title"><span id="modal_title">Insert Result</span></h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="col-12 form-group row">
-    				            <table class="table table-light table-responsive">
-    				                <thead>
-    				                <tr>
-    				                    <th>Subject Code</th>
-    				                    <th>Subject Name</th>
-    				                    <th>Grade</th>
-    				                    <th>Marks</th>
-    				                </tr>
-    				                </thead>
-    				                <tbody>
-    					                <tr>
-    					                    <td>
-    					                    	<select class="form-control" id="grade" name="grade">
-    							                    <option value="1">Ban-101</option>
-    							                    <option value="2">Eng-107</option>
-    							                    <option value="3">Math-128</option>
-    						                	</select>
-    					                    </td>
-    					                    <td>
-    					                    	<select class="form-control" id="grade" name="grade">
-    							                    <option value="1">Bangla</option>
-    							                    <option value="2">English</option>
-    							                    <option value="3">Math</option>
-    						                	</select>
-    					                    </td>
-    					                    <td>
-    					                    	<select class="form-control" id="grade" name="grade">
-    							                    <option value="1">A</option>
-    							                    <option value="2">A+</option>
-    							                    <option value="3">B</option>
-    						                	</select>
-    						                </td>
-    						                <td>
-    					                    	<input type="number" class="form-control" name="marks" id="marks">
-    						                </td>
-    					                </tr>
-    					                <tr>
-    					                    <td>
-    					                    	<select class="form-control" id="grade" name="grade">
-    							                    <option value="1">Ban-101</option>
-    							                    <option value="2">Eng-107</option>
-    							                    <option value="3">Math-128</option>
-    						                	</select>
-    					                    </td>
-    					                    <td>
-    					                    	<select class="form-control" id="grade" name="grade">
-    							                    <option value="1">Bangla</option>
-    							                    <option value="2">English</option>
-    							                    <option value="3">Math</option>
-    						                	</select>
-    					                    </td>
-    					                    <td>
-    					                    	<select class="form-control" id="grade" name="grade">
-    							                    <option value="1">A</option>
-    							                    <option value="2">A+</option>
-    							                    <option value="3">B</option>
-    						                	</select>
-    						                </td>
-    						                <td>
-    					                    	<input type="number" class="form-control" name="marks" id="marks">
-    						                </td>
-    					                </tr>
-    					                <tr>
-    					                    <td>
-    					                    	<select class="form-control" id="grade" name="grade">
-    							                    <option value="1">Ban-101</option>
-    							                    <option value="2">Eng-107</option>
-    							                    <option value="3">Math-128</option>
-    						                	</select>
-    					                    </td>
-    					                    <td>
-    					                    	<select class="form-control" id="grade" name="grade">
-    							                    <option value="1">Bangla</option>
-    							                    <option value="2">English</option>
-    							                    <option value="3">Math</option>
-    						                	</select>
-    					                    </td>
-    					                    <td>
-    					                    	<select class="form-control" id="grade" name="grade">
-    							                    <option value="1">A</option>
-    							                    <option value="2">A+</option>
-    							                    <option value="3">B</option>
-    						                	</select>
-    						                </td>
-    						                <td>
-    					                    	<input type="number" class="form-control" name="marks" id="marks">
-    						                </td>
-    					                </tr>
-    				                </tbody>
-    				            </table>
-    				        </div>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="hidden" name="result_id" id="result_id" />
-                            <input type="submit" name="action" id="action" class="btn btn-outline-info" value="Save" />
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
 
@@ -311,5 +240,5 @@
                 </form>
             </div>
          </div>
-    </form>
+    </div>
 </div>
