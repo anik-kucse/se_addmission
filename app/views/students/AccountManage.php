@@ -1,6 +1,11 @@
 <div class="container">
     <h1 style="text-align: center">Account Manage</h1>
-    <div class="row justify-content-around" style="padding-top: 10px">
+    <span class="text-danger text-center"><?php
+        if(isset($data['msg'])){
+            echo $data['msg'];
+        }
+        ?></span>
+    <div style="padding-top: 10px">
 
         <div class="col-12 row">
 	        <div class="col-6 from-control row">
@@ -96,149 +101,201 @@
             </div>
         </div>
 
-        <div class="col-12 form-group row">
-        <h4>SSC/O-Level Result</h4>
-            <table class="table table-light table-responsive">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Board</th>
-                        <th>Year</th>
-                        <th>Registration Number</th>
-                        <th>Roll Number</th>
-                        <th>GPA</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-	                <tr>
-	                    <td>SSC/O-Level</td>
-	                    <td>
-                            <select class="form-control" name="sscboard" id="sscboard" title="SSC Board" disabled="disabled">
-                                <?php foreach ($data['board'] as $k => $v){?>
-                                    <option value="<?php $v['id']?>"><?php $v['name']?></option>
-                                <?php }?>
-                            </select>
-                        </td>
-	                    <td>
-                            <input class="form-control" type="text" id="sscyear" name="sscyear" disabled="disabled">
-                        </td>
-	                    <td>
-                            <input class="form-control" type="text" id="sscregno" name="sscregno" disabled="disabled">
-                        </td>
-	                    <td>
-                            <input class="form-control" type="text" id="sscrollno" name="sscrollno" disabled="disabled">
-                        </td>
-	                    <td>
-                            <input class="form-control" type="text" id="sscgpa" name="sscgpa"  disabled="disabled">
-                        </td>
-						<td><a href="#" data-toggle="modal" data-target="#dataModal">Edit</a></td>
-	                </tr>
-                </tbody>
-            </table>
-            <div class="col-12 form-group row" id="ssc_resultShow">
-            <h4>SSC/A-level Marks</h4>
-            	<table class="table table-light table-responsive">
-                <thead>
-                <tr>
-                    <th>Subject Code</th>
-                    <th>Subject Name</th>
-                    <th>Grade</th>
-                    <th>Marks</th>
-                </tr>
-                </thead>
-                <tbody>
-	                <tr>
-	                    <td><label class="form-control" type="text"  id="ssc_subjectcode" name="subjectcode">hflkdhfkl</label></td>
-	                    <td><label class="form-control" type="text" id="ssc_subjectname" name="subjectname">dhfkjsdhfl</label></td>
-	                    <td><label class="form-control" type="number" id="ssc_grade" name="ssc_grade" >shdfjdslabel></td>
-	                    <td><label class="form-control" type="number" id="ssc_marks" name="ssc_marks">hdlkhf</label></td>
-	                </tr>
-                </tbody>
-            </table>
-            </div>
-            <table class="table table-light table-responsive">
-            <h4>HSC/O-level Result</h4>
-                <thead>
+        <h4 style="text-align: center">SSC/O-Level/Dakhil Result</h4>
+        <table class="table table-light table-responsive">
+            <thead>
                 <tr>
                     <th></th>
-                    <th>Board</th>
+                    <th width="20%">Board</th>
                     <th>Year</th>
                     <th>Registration Number</th>
                     <th>Roll Number</th>
                     <th>GPA</th>
-                    <th>Edit</th>
+                    <th></th>
                 </tr>
-                </thead>
-            	<tbody>
-	                <tr>
-	                    <td>HSC</td>
-	                    <td><label class="form-control" type="text"  id="hscyear" name="hscyear">gdsashgf</label></td>
-	                    <td><label class="form-control" type="text"  id="hscyear" name="hscyear" >bvkdcv</label></td>
-	                    <td><label class="form-control" type="text"  id="hscregno" name="hscregno" >dmnbvc</label></td>
-	                    <td><label class="form-control" type="text"  id="hscrollno" name="hscrollno" >dxgbckj</label></td>
-	                    <td><label class="form-control" type="text"  id="hscgpa" name="hscgpa">gfkjdsgbfkj</label></td>
-						<td><a href="#" data-toggle="modal" data-target="#dataModal">Edit</a></td>
-	                </tr>
-                </tbody>
-            </table>
-            <div class="col-12 form-group row" id="hsc_resultShow">
-            <h4>HSC/O-level Marks</h4>
-            	<table class="table table-light table-responsive">
-                <thead>
+            </thead>
+            <tbody>
+                <form method="post" action="<?php echo BASE_URL?>/StudentAccountManage/updateScc">
+                    <tr>
+                        <td>SSC/O-Level</td>
+                        <td>
+                            <select  class="form-control" name="sscboard" id="sscboard" title="SSC Board" disabled="disabled">
+                                <?php foreach ($data['board'] as $k => $v){
+                                    if($data['student'][0]['ssc_board_id'] == $v['id']){?>
+                                        <option value="<?php echo $v['id']?>" selected><?php echo $v['name']?></option>
+                                    <?php }else{?>
+                                        <option value="<?php echo $v['id']?>"><?php echo $v['name']?></option>
+                                    <?php }}?>
+                            </select>
+                        </td>
+                        <td>
+                            <input value="<?php echo $data['student'][0]['ssc_year']?>" class="form-control" type="text" id="sscyear" name="sscyear" disabled="disabled">
+                        </td>
+                        <td>
+                            <input value="<?php echo  $data['student'][0]['ssc_registration_number']?>" class="form-control" type="text" id="sscregno" name="sscregno" disabled="disabled">
+                        </td>
+                        <td>
+                            <input value="<?php echo  $data['student'][0]['ssc_roll_number']?>" class="form-control" type="text" id="sscrollno" name="sscrollno" disabled="disabled">
+                        </td>
+                        <td>
+                            <input value="<?php echo  $data['student'][0]['ssc_gpa']?>" class="form-control" type="text" id="sscgpa" name="sscgpa"  disabled="disabled">
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-link" id="btnEditSsc" onclick="btn_edit_ssc();">Edit</button>
+                            <button type="submit" class="btn btn-link" id="btnUpdateSsc" style="display: none">Update</button>
+                        </td>
+                    </tr>
+                </form>
+            </tbody>
+        </table>
+        <br>
+<!--        <h4>SSC/O-level/Dakhil Marks</h4>-->
+        <table class="table table-light table-responsive">
+            <thead>
                 <tr>
                     <th>Subject Code</th>
                     <th>Subject Name</th>
                     <th>Grade</th>
                     <th>Marks</th>
                 </tr>
-                </thead>
-                <tbody>
-	                <tr>
-	                    <td><label class="form-control" type="text"  id="ssc_subjectcode" name="subjectcode">hflkdhfkl</label></td>
-	                    <td><label class="form-control" type="text" id="ssc_subjectname" name="subjectname">dhfkjsdhfl</label></td>
-	                    <td><label class="form-control" type="number" id="ssc_grade" name="ssc_grade" >shdfjdslabel></td>
-	                    <td><label class="form-control" type="number" id="ssc_marks" name="ssc_marks">hdlkhf</label></td>
-	                </tr>
-                </tbody>
-            </table>
-            </div>
-        </div>
+            </thead>
+            <tbody>
+            <?php foreach ($data['ssc_result'] as $key => $value){?>
+                <tr>
+                    <td><label class="form-control"><?php echo $value['code']?></label></td>
+                    <td><label class="form-control"><?php echo $value['name']?></label></td>
+                    <td><label class="form-control"><?php echo $value['marks']?></label></td>
+                    <td><label class="form-control"><?php echo $value['grade']?></label></td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+        <h4 style="text-align: center">HSC/A-level/Alim Result</h4>
+        <table class="table table-light table-responsive">
+            <thead>
+            <tr>
+                <th></th>
+                <th width="20%">Board</th>
+                <th>Year</th>
+                <th>Registration Number</th>
+                <th>Roll Number</th>
+                <th>GPA</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <form method="post" action="<?php echo BASE_URL?>/StudentAccountManage/updateHcc">
+                <tr>
+                    <td>SSC/O-Level</td>
+                    <td>
+                        <select  class="form-control" name="hscboard" id="hscboard" title="SSC Board" disabled="disabled">
+                            <?php foreach ($data['board'] as $k => $v){
+                                if($data['student'][0]['hsc_board_id'] == $v['id']){?>
+                                    <option value="<?php echo $v['id']?>" selected><?php echo $v['name']?></option>
+                                <?php }else{?>
+                                    <option value="<?php echo $v['id']?>"><?php echo $v['name']?></option>
+                                <?php }}?>
+                        </select>
+                    </td>
+                    <td>
+                        <input value="<?php echo $data['student'][0]['hsc_year']?>" class="form-control" type="text" id="hscyear" name="hscyear" disabled="disabled">
+                    </td>
+                    <td>
+                        <input value="<?php echo  $data['student'][0]['hsc_registration_number']?>" class="form-control" type="text" id="hscregno" name="hscregno" disabled="disabled">
+                    </td>
+                    <td>
+                        <input value="<?php echo  $data['student'][0]['hsc_roll_number']?>" class="form-control" type="text" id="hscrollno" name="hscrollno" disabled="disabled">
+                    </td>
+                    <td>
+                        <input value="<?php echo  $data['student'][0]['hsc_gpa']?>" class="form-control" type="text" id="hscgpa" name="hscgpa"  disabled="disabled">
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-link" id="btnEditHsc" onclick="btn_edit_hsc();">Edit</button>
+                        <button type="submit" class="btn btn-link" id="btnUpdateHsc" style="display: none">Update</button>
+                    </td>
+                </tr>
+            </form>
+            </tbody>
+        </table>
+<!--        <h4>HSC/A-level/Alim Marks</h4>-->
+        <br>
+        <table class="table table-light table-responsive">
+            <thead>
+                <tr>
+                    <th>Subject Code</th>
+                    <th>Subject Name</th>
+                    <th>Grade</th>
+                    <th>Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($data['hsc_result'] as $key => $value){?>
+                <tr>
+                    <td><label class="form-control"><?php echo $value['code']?></label></td>
+                    <td><label class="form-control"><?php echo $value['name']?></label></td>
+                    <td><label class="form-control"><?php echo $value['marks']?></label></td>
+                    <td><label class="form-control"><?php echo $value['grade']?></label></td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
 
     	<div class="col-8 justify-content-around form-group row">
             <p>Do you wanna Change your Password?  <a href = "#" style = "color:red" data-toggle="modal" data-target="#ChangePassword"> Yes</a></p>
         </div>
 
-    	<div id="ChangePassword" class="modal fade">
+        <div id="ChangePassword" class="modal fade">
             <div class="modal-dialog">
-                <form method="post" id="data_form" enctype="multipart/form-data">
+                <form method="post" id="password_form" action="<?php echo BASE_URL?>/StudentAccountManage/updatePassword" enctype="multipart/form-data">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title"><span id="modal_title">Change Password</span></h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
-                            <label for="password_name" id="lbl_password">Current Password</label>
-                            <input autofocus="autofocus" type="password" class="form-control" va/>
-                            <br />
-                        </div>
-    					<div class="modal-body">
-                            <label for="password_name" id="lbl_password">New Password</label>
-                            <input autofocus="autofocus" type="password" class="form-control" va/>
-                            <br />
-                        </div>
-    					<div class="modal-body">
-                            <label for="password_name" id="lbl_password">Confirm Password</label>
-                            <input autofocus="autofocus" type="password" class="form-control" va/>
-                            <br />
+                            <div class="col">
+                                <label for="current_password">Current Password</label>
+                                <input type="password" class="form-control" id="current_password" name="current_password" />
+                            </div>
+                            <div class="col">
+                                <label for="new_password" >New Password</label>
+                                <input type="password" class="form-control" name="new_password" id="new_password"/>
+                            </div>
+                            <div class="col">
+                                <label for="confirm_password" >Confirm Password</label>
+                                <input type="password" class="form-control" name="confirm_password" id="confirm_password" />
+                            </div>
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" name="password_id" id="password_id" />
-                            <input type="submit" class="btn btn-outline-info" />
+                            <input type="submit" class="btn btn-outline-info" value="Change" />
                         </div>
                     </div>
                 </form>
             </div>
-         </div>
+        </div>
     </div>
 </div>
+
+
+<script>
+    function btn_edit_ssc() {
+        $('#sscboard').prop('disabled', false);
+        $('#sscyear').prop('disabled', false);
+        $('#sscregno').prop('disabled', false);
+        $('#sscrollno').prop('disabled', false);
+        $('#sscgpa').prop('disabled', false);
+        $('#btnEditSsc').css('display', 'none');
+        $('#btnUpdateSsc').css('display', 'block');
+    }
+
+    function btn_edit_hsc() {
+        $('#hscboard').prop('disabled', false);
+        $('#hscyear').prop('disabled', false);
+        $('#hscregno').prop('disabled', false);
+        $('#hscrollno').prop('disabled', false);
+        $('#hscgpa').prop('disabled', false);
+        $('#btnEditHsc').css('display', 'none');
+        $('#btnUpdateHsc').css('display', 'block');
+    }
+
+</script>
