@@ -16,7 +16,7 @@ class Login extends MainController
     public function login($data = false){
         Session::init();
         if(Session::get("login") == true ){
-            header("Location: ".BASE_URL."/Index");
+            header("Location: ".BASE_URL."/AccountManage");
         } else {
             $data = ['pageName' => 'Log in'];
             $this->load->view("partials/headerPublic", $data);
@@ -39,16 +39,11 @@ class Login extends MainController
                 Session::set('id',  $loginData[0]['id']);
                 Session::set('user_role',  $loginData[0]['user_role']);
                 Session::set('password',  $loginData[0]['password']);
-                var_dump(Session::get('login'));
-                var_dump(Session::get('username'));
-                var_dump(Session::get('id'));
-                var_dump(Session::get('user_role'));
-                var_dump(Session::get('password'));
-                // if($loginData[0]['user_role'] == 'admin'){
-                //     header("Location: ".BASE_URL."/Index");
-                // } else {
-                //     header("Location: ".BASE_URL."/Index");
-                // }
+                 if($loginData[0]['user_role'] == 'admin' || $loginData[0]['user_role'] == 'manager' || $loginData[0]['user_role'] == 'data_entry' ){
+                     header("Location: ".BASE_URL."/AccountManage");
+                 } elseif($loginData[0]['user_role'] == 'student') {
+                     header("Location: ".BASE_URL."/StudentAccountManage");
+                 }
             }else{
                 header("Location: ".BASE_URL."/Login");
             }

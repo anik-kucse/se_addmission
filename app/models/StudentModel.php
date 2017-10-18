@@ -24,4 +24,9 @@ class StudentModel extends MainModel {
         return $this->db->update('student', $data, $cond);
     }
 
+    public function getStudentByUserId($userId){
+        $sql = "SELECT id FROM student WHERE user_id = $userId";
+        return $this->db->select($sql);
+    }
+
 }

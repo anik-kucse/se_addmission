@@ -110,4 +110,18 @@ class Unit extends MainController{
             var_dump($res);
         }
     }
+
+    public function unitDetail($unit_id){
+        $pageName=['pageName' => 'Unit'];
+        $this->load->view('partials/header', $pageName);
+
+        $simpleModel = $this->load->model('SimpleModel');
+        $cond = "id = $unit_id";
+        $unit['unit'] = $simpleModel->getAll('unit', $cond);
+        $unit['session'] =$simpleModel->getAll('session');
+        $unit['university'] =$simpleModel->getAll('university');
+
+        $this->load->view('admin/unitDetails', $unit);
+        $this->load->view('partials/footer');
+    }
 }

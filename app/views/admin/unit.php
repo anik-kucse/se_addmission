@@ -24,7 +24,7 @@
             <tbody>
             <?php foreach ($data['list'] as $key => $value){?>
                 <tr>
-                    <td><span><?php echo $value['unit_name']?></span></td>
+                    <td><span><a href="<?php echo BASE_URL?>/Unit/unitDetail/<?php echo $value['id']?>"><?php echo $value['unit_name']?></a></span></td>
                     <td><span style="display: none"><?php echo $value['university_id']?></span>
                         <?php
                         foreach ($data['university'] as $k => $v){
