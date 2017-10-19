@@ -30,7 +30,7 @@
                 <label class="form-lebel col-1" for="gpa">GPA</label>
                 <input class="form-control col-1" type="text" name="gpa" id="gpa" required = "1">
                 <label class="form-lebel col-1" for="mark">Marks</label>
-                <input class="form-control col-1" type="text" name="mark" id="mark" required = "1">
+                <input class="form-control col-1" type="number" name="mark" id="mark" required = "1">
                 <input  class="form-control col-1" type="text" name="type" style="visibility: hidden" value="<?php echo $data['type']?>">
                 <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Insert</button>
             </div>
