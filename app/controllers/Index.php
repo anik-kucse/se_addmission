@@ -19,11 +19,11 @@ class Index extends MainController
         header('Location:'.BASE_URL.'/login');
     }
 
-    public function studentAccountManage()
+    public function studentUnitDetail()
     {
-        $pageName = ['pageName' => 'Account Manage'];
+        $pageName = ['pageName' => 'All University'];
         $this->load->view('partials/headerPublic', $pageName);
-        $this->load->view('students/accountManage');
+        $this->load->view('students/unitDetail');
         $this->load->view('partials/footer');
     }
 

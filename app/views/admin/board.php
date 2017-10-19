@@ -1,4 +1,5 @@
 <div class="col">
+    <h1 style="text-align: center">All Board</h1>
     <div class="table-responsive">
         <br />
          <table id="board_data" class="table">

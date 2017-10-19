@@ -1,17 +1,21 @@
 <div class="col">
+    <h1 style="text-align: center">Unit Procedure List</h1>
     <br>
-    <div class="row">
-        <form method="post" id="unit_university" class="row">
-            <label  class="col-md-2">Select Unit</label>
-            <select name="university" id="university" class="form-control col-md-4" onchange="selected_changed();">
-                <?php foreach ($data['unit'] as $key => $value){
-                    if($data['unit_id'] == $value['id']){?>
-                        <option value="<?php echo $value['id']?>" <?php echo 'selected'?>><?php echo $value['name']." ".$value['unit_name']." (".$value['session'].")"; ?></option>
-                    <?php }else{?>
-                        <option value="<?php echo $value['id']?>" ><?php echo $value['name']." ".$value['unit_name']." (".$value['session'].")"; ?></option>
+    <div class="col-12">
+        <form method="post" id="unit_university">
+            <div class="row">
+                <label  class="col-md-3" style="visibility:hidden">hidden</label>
+                <label  class="col-md-2">Select Unit</label>
+                <select name="university" id="university" class="form-control col-md-4" onchange="selected_changed();">
+                    <?php foreach ($data['unit'] as $key => $value){
+                        if($data['unit_id'] == $value['id']){?>
+                            <option value="<?php echo $value['id']?>" <?php echo 'selected'?>><?php echo $value['name']." ".$value['unit_name']." (".$value['session'].")"; ?></option>
+                        <?php }else{?>
+                            <option value="<?php echo $value['id']?>" ><?php echo $value['name']." ".$value['unit_name']." (".$value['session'].")"; ?></option>
+                        <?php }?>
                     <?php }?>
-                <?php }?>
-            </select>
+                </select>
+            </div>
         </form>
     </div>
     <div class="table-responsive">

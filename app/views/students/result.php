@@ -1,34 +1,39 @@
-<br>
 <div class="container">
-    <div class="col-12 row">
-    <label class="col-4" style="visibility:hidden">hidden</label>
+    <h1 style="text-align: center">Insert Result</h1>
+    <br>
+    <div class="col-12 ">
         <form method="post" id="exam">
-            <label class="" for="examType">Select Exam Type</label>
-            <select class="form-group col-5" name="examType" id="examType" onchange="selected_changed();" >
-                <option value="SSC" <?php if($data['type'] == 'SSC'){echo 'selected';}?>>SSC</option>
-                <option value="HSC" <?php if($data['type'] == 'HSC'){echo 'selected';}?>>HSC</option>
-                <option value="Dakhil" <?php if($data['type'] == 'Dakhil'){echo 'selected';}?>>Dakhil</option>
-                <option value="Alim" <?php if($data['type'] == 'Alim'){echo 'selected';}?>>Alim</option>
-                <option value="O Level" <?php if($data['type'] == 'O Level'){echo 'selected';}?>>O Level</option>
-                <option value="A Level" <?php if($data['type'] == 'A Level'){echo 'selected';}?>>A Level</option>
-            </select>
+            <div class="row">
+                <label class="col-1" style="visibility:hidden">hidden</label>
+                <label class="col-form-label col-3" for="examType">Select Exam Type</label>
+                <select class="form-control col-5 " name="examType" id="examType" onchange="selected_changed();" >
+                    <option value="SSC" <?php if($data['type'] == 'SSC'){echo 'selected';}?>>SSC</option>
+                    <option value="HSC" <?php if($data['type'] == 'HSC'){echo 'selected';}?>>HSC</option>
+                    <option value="Dakhil" <?php if($data['type'] == 'Dakhil'){echo 'selected';}?>>Dakhil</option>
+                    <option value="Alim" <?php if($data['type'] == 'Alim'){echo 'selected';}?>>Alim</option>
+                    <option value="O Level" <?php if($data['type'] == 'O Level'){echo 'selected';}?>>O Level</option>
+                    <option value="A Level" <?php if($data['type'] == 'A Level'){echo 'selected';}?>>A Level</option>
+                </select>
+            </div>
         </form>
-    </div>
-    <div class="col-12 row">
-        <label class="col-2" style="visibility:hidden">hidden</label>
+    </div><br>
+    <div class="col-12">
         <form action="<?php echo BASE_URL ?>/result/insert" method="post">
-            <label class="col-2" for="subName">Select Subject</label>
-            <select class="form-group col-4" name="subName" id="subName">
-                <?php foreach ($data['sub'] as $key => $value){?>
-                    <option value="<?php echo $value['id']?>"><?php echo $value['code']." ".$value['name']?></option>
-                <?php }?>
-            </select>
-            <label class="form-group " for="gpa">GPA</label>
-            <input class="form-group col-1" type="text" name="gpa" id="gpa">
-            <label class="form-group" for="mark">Marks</label>
-            <input class="form-group col-1" type="text" name="mark" id="mark">
-            <input  class="form-group col-1" type="text" name="type" style="display: none" value="<?php echo $data['type']?>">
-            <button class="form-group col-1" type="submit">Insert</button>
+            <div class="row">
+                <label class="col-1" style="visibility:hidden">hidden</label>
+                <label class="col-2" for="subName">Select Subject</label>
+                <select class="form-control col-3" name="subName" id="subName">
+                    <?php foreach ($data['sub'] as $key => $value){?>
+                        <option value="<?php echo $value['id']?>"><?php echo $value['code']." ".$value['name']?></option>
+                    <?php }?>
+                </select>
+                <label class="form-lebel col-1" for="gpa">GPA</label>
+                <input class="form-control col-1" type="text" name="gpa" id="gpa" required = "1">
+                <label class="form-lebel col-1" for="mark">Marks</label>
+                <input class="form-control col-1" type="number" name="mark" id="mark" required = "1">
+                <input  class="form-control col-1" type="text" name="type" style="visibility: hidden" value="<?php echo $data['type']?>">
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Insert</button>
+            </div>
         </form>
     </div>
     <div class="table-responsive">
@@ -56,10 +61,10 @@
                             </select>
                         </td>
                         <td>
-                            <input type="text" name="gpa" id="gpa" disabled="disabled" value="<?php echo $v['grade']?>">
+                            <input type="text" class = "form-control" name="gpa" id="gpa" disabled="disabled" value="<?php echo $v['grade']?>">
                         </td>
                         <td>
-                            <input type="text" name="mark" id="mark" disabled="disabled" value="<?php echo $v['marks']?>">
+                            <input type="text" class = "form-control" name="mark" id="mark" disabled="disabled" value="<?php echo $v['marks']?>">
                         </td>
                         <td>
                             <button type="submit" class="btn btn-link" style="display: none" name="table_id" value="<?php echo $v['id']?>">Update</button>
