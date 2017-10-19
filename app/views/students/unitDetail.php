@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 style="text-align: center">All University</h1>
+    <h1 style="text-align: center"> All University Unit Detail</h1>
     <br>
      <div class="table-responsive">
         <br />
@@ -19,7 +19,7 @@
                     <td>cghh</td>
                     <td>dhfiu</td>
                     <td>hgiu</td>
-                    <td><button class="btn btn-outline-info my-2 my-sm-0" type="submit">Detail</button></td>
+                    <td><button class="btn btn-outline-info my-2 my-sm-0" type="submit">More</button></td>
                     <td><button class="btn btn-outline-info my-2 my-sm-0" type="submit">Apply</button></td>
                 </tr>
             <tbody>

@@ -1,4 +1,5 @@
 <div class="col">
+    <h1 style="text-align: center">Manage All Account</h1>
     <div class="table-responsive">
         <br />
         <table id="session_table" class="table">
