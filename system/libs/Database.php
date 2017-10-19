@@ -30,8 +30,6 @@ class Database extends PDO {
             return $last_id = $this->lastInsertId();
         }else{
             return '[' . $stmt->errorCode() . ']: ' . $stmt->errorInfo();
-
-
         }
     }
 
