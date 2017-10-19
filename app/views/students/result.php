@@ -1,29 +1,36 @@
-<div class="col">
-    <form method="post" id="exam">
-        <label for="examType">Select Exam Type</label>
-        <select name="examType" id="examType" onchange="selected_changed();" >
-            <option value="SSC" <?php if($data['type'] == 'SSC'){echo 'selected';}?>>SSC</option>
-            <option value="HSC" <?php if($data['type'] == 'HSC'){echo 'selected';}?>>HSC</option>
-            <option value="Dakhil" <?php if($data['type'] == 'Dakhil'){echo 'selected';}?>>Dakhil</option>
-            <option value="Alim" <?php if($data['type'] == 'Alim'){echo 'selected';}?>>Alim</option>
-            <option value="O Level" <?php if($data['type'] == 'O Level'){echo 'selected';}?>>O Level</option>
-            <option value="A Level" <?php if($data['type'] == 'A Level'){echo 'selected';}?>>A Level</option>
-        </select>
-    </form>
-    <form action="<?php echo BASE_URL ?>/result/insert" method="post">
-        <label for="subName">Select Subject</label>
-        <select name="subName" id="subName">
-            <?php foreach ($data['sub'] as $key => $value){?>
-                <option value="<?php echo $value['id']?>"><?php echo $value['code']." ".$value['name']?></option>
-            <?php }?>
-        </select>
-        <label for="gpa">GPA</label>
-        <input type="text" name="gpa" id="gpa">
-        <label for="mark">Marks</label>
-        <input type="text" name="mark" id="mark">
-        <input type="text" name="type" style="display: none" value="<?php echo $data['type']?>">
-        <button type="submit">Insert</button>
-    </form>
+<br>
+<div class="container">
+    <div class="col-12 row">
+    <label class="col-4" style="visibility:hidden">hidden</label>
+        <form method="post" id="exam">
+            <label class="" for="examType">Select Exam Type</label>
+            <select class="form-group col-5" name="examType" id="examType" onchange="selected_changed();" >
+                <option value="SSC" <?php if($data['type'] == 'SSC'){echo 'selected';}?>>SSC</option>
+                <option value="HSC" <?php if($data['type'] == 'HSC'){echo 'selected';}?>>HSC</option>
+                <option value="Dakhil" <?php if($data['type'] == 'Dakhil'){echo 'selected';}?>>Dakhil</option>
+                <option value="Alim" <?php if($data['type'] == 'Alim'){echo 'selected';}?>>Alim</option>
+                <option value="O Level" <?php if($data['type'] == 'O Level'){echo 'selected';}?>>O Level</option>
+                <option value="A Level" <?php if($data['type'] == 'A Level'){echo 'selected';}?>>A Level</option>
+            </select>
+        </form>
+    </div>
+    <div class="col-12 row">
+        <label class="col-2" style="visibility:hidden">hidden</label>
+        <form action="<?php echo BASE_URL ?>/result/insert" method="post">
+            <label class="col-2" for="subName">Select Subject</label>
+            <select class="form-group col-4" name="subName" id="subName">
+                <?php foreach ($data['sub'] as $key => $value){?>
+                    <option value="<?php echo $value['id']?>"><?php echo $value['code']." ".$value['name']?></option>
+                <?php }?>
+            </select>
+            <label class="form-group " for="gpa">GPA</label>
+            <input class="form-group col-1" type="text" name="gpa" id="gpa">
+            <label class="form-group" for="mark">Marks</label>
+            <input class="form-group col-1" type="text" name="mark" id="mark">
+            <input  class="form-group col-1" type="text" name="type" style="display: none" value="<?php echo $data['type']?>">
+            <button class="form-group col-1" type="submit">Insert</button>
+        </form>
+    </div>
     <div class="table-responsive">
         <br />
         <table id="sub_table" class="table">
