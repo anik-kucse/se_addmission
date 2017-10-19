@@ -24,7 +24,7 @@ class Registration extends MainController{
         $simpleModel =$this->load->model('SimpleModel');
         $data['board'] = $simpleModel->getAll('board');
 
-        $this->load->view('students/registration',$data);
+        $this->load->view('students/resgister',$data);
         $this->load->view('partials/footer');
     }
 
