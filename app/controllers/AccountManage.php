@@ -17,11 +17,11 @@ class AccountManage extends MainController{
 
     public function adminAccountManage($value = false)
     {
+        Session::init();
         $pageName = ['pageName' => 'Account Manage'];
         $this->load->view('partials/header', $pageName);
 
         $simpleModel = $this->load->model('SimpleModel');
-        Session::init();
         $user_id = Session::get('id');
         $cond = "id = $user_id";
         $user = $simpleModel->getAll('users', $cond);
@@ -66,7 +66,7 @@ class AccountManage extends MainController{
                 ];
                 $res = $simpleModel->update('users', $data, $cond);
                 if($res){
-                    $msg = "Password Changed Successfull";
+                    $msg = "Password Changed Successful";
                 }else{
                     $msg = "Database Error";
                 }
