@@ -112,13 +112,7 @@ class Registration extends MainController{
                 ];
                 $res = $simpleModel->insert('student',$data);
                 if($res){
-                    Usession::init();
-                    Usession::set('login', 'true');
-                    Usession::set('user_id', $lastId);
-                    Usession::set('student_id', $res);
-                    Usession::set('user_role', 'student');
-                    Usession::set('password', md5($password));
-                    header("Location: ".BASE_URL."/Index");
+                    header("Location: ".BASE_URL."/login");
                 }
 
             }

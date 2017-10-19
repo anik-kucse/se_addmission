@@ -16,20 +16,9 @@
             <tbody>
             <?php foreach ($data['list'] as $key => $value){?>
                 <tr>
-                    <td> <span><?php echo $value['code']?></span> </td>
-                    <td> <span><?php echo $value['name']?></span> </td>
-                    <td>
-                        <span style="display: none"><?php echo $value['exam_type_id']?></span>
-                        <span>
-                            <?php
-                            foreach ($data['type'] as $k => $v){
-                                if($v['id'] == $value['exam_type_id']){
-                                    echo $v['type'];
-                                }
-                            }
-                            ?>
-                        </span>
-                    </td>
+                    <td><span><?php echo $value['code']?></span></td>
+                    <td><span><?php echo $value['name']?></span></td>
+                    <td><span><?php echo $value['exam_type'];?></span></td>
                     <td>
                         <?php
                         foreach ($data['users'] as $k => $v) {
@@ -73,10 +62,12 @@
                         <br />
                         <label for="sub_type" id="lbl_sub_type">Select type</label>
                         <select class="form-control" id="sub_type" name="sub_type" title="subject_type">
-                            <?php foreach ($data['type'] as $key => $value){?>
-                                <option value="<?php echo $value['id']?>"><?php echo $value['type']?></option>
-                            <?php } ?>
-
+                                <option value="SSC">SSC</option>
+                                <option value="HSC">HSC</option>
+                                <option value="Dakhil">Dakhil</option>
+                                <option value="Alim">Alim</option>
+                                <option value="O Level">O Level</option>
+                                <option value="A Level">A Level</option>
                         </select>
                         <br />
                     </div>
@@ -106,9 +97,9 @@
         var parent = asd.parentNode.parentNode;
         var btn = parent.childNodes[11];
         var btnValue = btn.childNodes[1].value;
-        var sub_code = parent.childNodes[1].childNodes[1].innerText;
-        var sub_name = parent.childNodes[3].childNodes[1].innerText;
-        var sub_type = parent.childNodes[5].childNodes[1].innerText;
+        var sub_code = parent.childNodes[1].childNodes[0].innerText;
+        var sub_name = parent.childNodes[3].childNodes[0].innerText;
+        var sub_type = parent.childNodes[5].childNodes[0].innerText;
         console.log(sub_type);
         $('#dataModal').modal('show');
         $('#data_form').attr('action','http://localhost/se_addmission/Subject/update');

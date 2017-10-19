@@ -22,7 +22,6 @@ class Subject extends MainController{
         $simpleModel = $this->load->model('SimpleModel');
 
         $table['list']  = $simpleModel->getAll('subject');
-        $table['type']  = $simpleModel->getAll('exam_type');
         $table['users'] = $simpleModel->getAll('users');
 
         $this->load->view("admin/subject", $table);
@@ -35,7 +34,7 @@ class Subject extends MainController{
         $data =[
             'code'              =>  $_POST['sub_code'],
             'name'              =>  $_POST['sub_name'],
-            'exam_type_id'      =>  $_POST['sub_type'],
+            'exam_type'      =>  $_POST['sub_type'],
             'modified_id'       =>  session::get('id')
         ];
         $res = $simpleModel->insert('subject',$data);
@@ -50,10 +49,10 @@ class Subject extends MainController{
         $simpleModel = $this->load->model('SimpleModel');
         Session::init();
         $data =[
-            'code'              =>  $_POST['sub_code'],
-            'name'              =>  $_POST['sub_name'],
-            'subject_type_id'   =>  $_POST['sub_type'],
-            'modified_id'       =>  session::get('id')
+            'code'        =>  $_POST['sub_code'],
+            'name'        =>  $_POST['sub_name'],
+            'exam_type'   =>  $_POST['sub_type'],
+            'modified_id' =>  session::get('id')
         ];
         $sub_id = $_POST['sub_id'];
         $cond = "id = $sub_id";

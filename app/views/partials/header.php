@@ -32,6 +32,12 @@
         <div class="col-3" id="sidebar">
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
+                    <a href="<?php echo BASE_URL?>/AccountManage" class="nav-link">Account Manage</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo BASE_URL?>/manageallaccount" class="nav-link">Manage All Account</a>
+                </li>
+                <li class="nav-item">
                     <a href="<?php echo BASE_URL?>/university" class="nav-link">University</a>
                 </li>
                 <li class="nav-item">
@@ -42,9 +48,6 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL?>/subject" class="nav-link">Subject</a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL?>/subjectType" class="nav-link">Exam type</a>
                 </li>
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL?>/board" class="nav-link">Board</a>
