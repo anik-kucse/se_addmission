@@ -8,20 +8,39 @@
                 <tr>
                     <th >University Name</th>
                     <th >Unit Name</th>
+                    <th >Session</th>
                     <th >Starting Date</th>
                     <th >End Date</th>
+                    <th >Form Price</th>
                     <th >Detail</th>
                     <th >Apply</th>
                 </tr>
             </thead>
+            <?php foreach ($data['table'] as $key => $value){?>
                 <tr>
-                    <td>fdhgihf</td>
-                    <td>cghh</td>
-                    <td>dhfiu</td>
-                    <td>hgiu</td>
-                    <td><button class="btn btn-outline-info my-2 my-sm-0" type="submit">More</button></td>
-                    <td><button class="btn btn-outline-info my-2 my-sm-0" type="submit">Apply</button></td>
+                    <td><label><?php echo $value['name']?></label></td>
+                    <td><label><?php echo $value['unit_name']?></label></td>
+                    <td><label><?php echo $value['session']?></label></td>
+                    <td><label><?php echo $value['start_date_time']?></label></td>
+                    <td><label><?php echo $value['end_date_time']?></label></td>
+                    <td><label><?php
+                            $fPrice = (int)$value['form_price'];
+                            $sCharge = (int)$value['service_charge'];
+                            $total = $fPrice + $sCharge;
+                            echo $total." BDT";
+                            ?></label></td>
+                    <td>
+                        <form action="<?php echo BASE_URL?>/unitdetail/unitdetail/<?php echo $value['id']?>" method="post">
+                            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">More</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="<?php echo BASE_URL?>/getAdmitted/apply" method="post">
+                            <button value="<?php echo $value['id']?>" name="unit_id" class="btn btn-outline-info my-2 my-sm-0" type="submit">Apply</button>
+                        </form>
+                    </td>
                 </tr>
+            <?php }?>
             <tbody>
             </tbody>
         </table>

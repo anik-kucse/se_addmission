@@ -32,4 +32,9 @@ class SimpleModel extends MainModel {
     {
         return $this->db->delete($table, $cond);
     }
+
+    public function getMaxId($table){
+        $sql = "SELECT MAX(id) FROM $table";
+        return $this->db->select($sql);
+    }
 }

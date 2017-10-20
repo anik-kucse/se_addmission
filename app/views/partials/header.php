@@ -59,7 +59,7 @@
                     <a href="<?php echo BASE_URL?>/procedureList" class="nav-link">Procedure list</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Form sell</a>
+                    <a href="<?php echo BASE_URL?>/formsell" class="nav-link">Form sell</a>
                 </li>
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL?>/unitprocedurelist" class="nav-link">Unit procedure list</a>

@@ -18,14 +18,4 @@ class Index extends MainController
     public function home(){
         header('Location:'.BASE_URL.'/login');
     }
-
-    public function studentUnitDetail()
-    {
-        $pageName = ['pageName' => 'All University'];
-        $this->load->view('partials/headerPublic', $pageName);
-        $this->load->view('students/unitDetail');
-        $this->load->view('partials/footer');
-    }
-
-
 }

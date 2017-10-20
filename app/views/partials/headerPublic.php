@@ -31,6 +31,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASE_URL?>/result">Result</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo BASE_URL?>/getAdmitted">Get Admitted</a>
+                </li>
             <?php }?>
         </ul>
         <ul class="navbar-nav ml-auto">
