@@ -120,11 +120,11 @@
                             <form>
                                 <div class="form-group">
                                     <label for="unit_name" class="form-control-label">Unit</label>
-                                    <input type="text" class="form-control" id="unit_name" name="unit_name">
+                                    <input type="text" class="form-control" id="unit_name" name="unit_name" required = "1" />
                                 </div>
                                 <div class="form-group">
                                     <label for="university" class="form-control-label">University Name</label>
-                                    <select class="form-control" id="university" name="university">
+                                    <select class="form-control" id="university" name="university" required = "1">
                                         <?php foreach ($data['university'] as $key => $value){?>
                                             <option value="<?php echo $value['id']?>"><?php echo $value['name']?></option>
                                         <?php } ?>
@@ -132,7 +132,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="session" class="form-control-label">Session</label>
-                                    <select class="form-control" id="session" name="session">
+                                    <select class="form-control" id="session" name="session" required = "1">
                                         <?php foreach ($data['session'] as $key => $value){?>
                                             <option value="<?php echo $value['id']?>"><?php echo $value['session']?></option>
                                         <?php } ?>
@@ -140,27 +140,27 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="starting_time" class="form-control-label">Starting time</label>
-                                    <input type="datetime-local" class="form-control" id="starting_time" name="starting_time">
+                                    <input type="datetime-local" class="form-control" id="starting_time" name="starting_time" required = "1">
                                 </div>
                                 <div class="form-group">
                                     <label for="ending_time" class="form-control-label">Ending time</label>
-                                    <input type="datetime-local" class="form-control" id="ending_time" name="ending_time">
+                                    <input type="datetime-local" class="form-control" id="ending_time" name="ending_time" required = "1">
                                 </div>
                                 <div class="form-group">
                                     <label for="selection_time" class="form-control-label">Selection time</label>
-                                    <input type="datetime-local" class="form-control" id="selection_time" name="selection_time">
+                                    <input type="datetime-local" class="form-control" id="selection_time" name="selection_time" required = "1">
                                 </div>
                                 <div class="form-group">
                                     <label for="exam_time" class="form-control-label">Exam time</label>
-                                    <input type="datetime-local" class="form-control" id="exam_time" name="exam_time">
+                                    <input type="datetime-local" class="form-control" id="exam_time" name="exam_time" required = "1">
                                 </div>
                                 <div class="form-group">
                                     <label for="form_price" class="form-control-label">Form price</label>
-                                    <input type="text" class="form-control" id="form_price" name="form_price">
+                                    <input type="text" class="form-control" id="form_price" name="form_price" required = "1">
                                 </div>
                                 <div class="form-group">
                                     <label for="service_charge" class="form-control-label">Service charge</label>
-                                    <input type="text" class="form-control" id="service_charge" name="service_charge">
+                                    <input type="text" class="form-control" id="service_charge" name="service_charge" required = "1">
                                 </div>
                                 <div class="form-group">
                                     <label for="details" class="form-control-label">Details</label>

@@ -84,10 +84,10 @@
                     </div>
                     <div class="modal-body">
                         <label for="serial" >Serial No</label>
-                        <input type="number" name="serial" id="serial" class="form-control"/>
+                        <input type="number" name="serial" id="serial" class="form-control" required = "1"/>
 
                         <label for="procedure">SelectProcedure</label>
-                        <select name="procedure" id="procedure" class="form-control">
+                        <select name="procedure" id="procedure" class="form-control" required = "1">
                             <?php foreach ($data['procedure'] as $key => $value){?>
                                 <option value="<?php echo $value['id']?>"><?php echo $value['name']?></option>
                             <?php }?>
@@ -96,7 +96,7 @@
                         <label for="input_type">Input Type</label>
                         <label for="input_type" class="form-control"><input type="checkbox" name="input_type" id="input_type" class="form-check" value="1"/> Text</label>
                         <label for="cost">Cost</label>
-                        <input type="number" name="cost" id="cost" class="form-control" />
+                        <input type="number" name="cost" id="cost" class="form-control" required = "1"/>
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="unit_id" id="unit_id" />

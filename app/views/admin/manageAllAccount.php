@@ -67,19 +67,19 @@
                     </div>
                     <div class="modal-body">
                         <label for="user_name" id="lbl_user_name">User Name</label>
-                        <input autofocus="autofocus" type="text" name="user_name" id="user_name" class="form-control" va/>
+                        <input autofocus="autofocus" type="text" name="user_name" id="user_name" class="form-control" required = "1"/>
                         <br />
                         <label for="full_name" id="lbl_full_name">Full Name</label>
-                        <input type="text" name="full_name" id="full_name" class="form-control" va/>
+                        <input type="text" name="full_name" id="full_name" class="form-control" required = "1"/>
                         <br />
                         <label for="password" id="lbl_password">Password</label>
-                        <input type="password" name="password" id="password" class="form-control" va/>
+                        <input type="password" name="password" id="password" class="form-control" required = "1"/>
                         <br />
                         <label for="confirm_password" id="lbl_confirm_password">Rewrite Password</label>
-                        <input type="password" name="confirm_password" id="confirm_password" class="form-control" va/>
+                        <input type="password" name="confirm_password" id="confirm_password" class="form-control" required = "1"/>
                         <br />
                         <label for="user_role" id="lbl_userName">User Role</label>
-                        <select class="form-control" id="user_role" name="user_role" title="subject_type">
+                        <select class="form-control" id="user_role" name="user_role" title="subject_type" required = "1">
                             <option value="manager">Manager</option>
                             <option value="data_entry">Data Entry</option>
                         </select>
