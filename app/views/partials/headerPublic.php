@@ -34,6 +34,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASE_URL?>/getAdmitted">Get Admitted</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo BASE_URL?>/MyForms">My Forms</a>
+                </li>
             <?php }?>
         </ul>
         <ul class="navbar-nav ml-auto">

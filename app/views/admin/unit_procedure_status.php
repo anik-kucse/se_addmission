@@ -1,5 +1,5 @@
 <div class="col-9">
-    <h1 style="text-align: center">Main Work :P</h1>
+    <h1 style="text-align: center">Unit Procedure Status</h1>
     <label>From Number</label>
     <lable><?php echo $data['formSerial'][0]['serial_number'];?></lable>
     <label>Student Name</label>
@@ -7,6 +7,9 @@
     <div class="progress">
         <?php
         $c = count($data['table']);
+        if($c == 0){
+            $c = 1;
+        }
         $i = 0;
         foreach ($data['table'] as $key => $value){
             if($value['value'] != null){

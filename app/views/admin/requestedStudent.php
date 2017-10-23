@@ -17,17 +17,18 @@
             </thead>
             <tbody>
             <?php foreach ($data['table'] as $key => $value){?>
-                <td><?php echo $value['full_name']?></td>
-                <td><?php echo $value['name']?></td>
-                <td><?php echo $value['unit_name']?></td>
-                <td><?php echo $value['session']?></td>
-                <td><a href="<?php echo BASE_URL?>/UnitProcedureStatus/main/<?php echo $value['id']?>"><?php echo $value['serial_number']?></a></td>
-                <td><?php echo (int)$value['form_price'] + (int)$value['service_charge']; ?></td>
-                <td>
-                    <?php
-                    if($value['is_approve'] == '0'){
+                <tr>
+                    <td><?php echo $value['full_name']?></td>
+                    <td><?php echo $value['name']?></td>
+                    <td><?php echo $value['unit_name']?></td>
+                    <td><?php echo $value['session']?></td>
+                    <td><a href="<?php echo BASE_URL?>/UnitProcedureStatus/main/<?php echo $value['id']?>"><?php echo $value['serial_number']?></a></td>
+                    <td><?php echo (int)$value['form_price'] + (int)$value['service_charge']; ?></td>
+                    <td>
+                        <?php
+                        if($value['is_approve'] == '0'){
                         echo 'Not Approved';
-                    ?>
+                        ?>
                     </td>
                     <td>
                         <form action="<?php echo BASE_URL ?>/FormSell/approve" method="post">
@@ -37,12 +38,13 @@
                     </td>
                     <?php }else{
                         echo 'Approved';
-                    ?>
+                        ?>
                         </td>
                         <td>
                             <button class="btn btn-outline-info my-2 my-sm-0" disabled>Approved</button>
                         </td>
                     <?php }?>
+                </tr>
             <?php }?>
             </tbody>
         </table>

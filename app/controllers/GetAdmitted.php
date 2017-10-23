@@ -58,7 +58,7 @@ class GetAdmitted extends MainController{
 
         $res = $simpleModel->insert('form_sell', $data);
         if($res){
-            var_dump($res);
+            header('Location:'.BASE_URL.'/MyForms');
         }else{
             var_dump($res);
         }
