@@ -29,4 +29,19 @@ class StudentModel extends MainModel {
         return $this->db->select($sql);
     }
 
+    public function getStudentNameByFormId($formId){
+        $sql = "SELECT student.id, users.full_name FROM form_sell
+                INNER JOIN student ON student.id = form_sell.student_id
+                INNER JOIN users ON student.user_id = users.id
+                WHERE form_sell.id = $formId";
+        return $this->db->select($sql);
+    }
+
+    public function getUserByStudentId($studentId){
+        $sql = "SELECT users.id, users.full_name, users.user_name, users.user_role FROM student
+                INNER JOIN users on users.id = student.user_id
+                WHERE student.id = $studentId";
+        return $this->db->select($sql);
+    }
+
 }

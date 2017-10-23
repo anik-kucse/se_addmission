@@ -22,4 +22,14 @@ class FormSellModel extends MainModel{
                 INNER JOIN session ON session.id = unit.session_id";
         return $this->db->select($sql);
     }
+
+    public  function getFormDetailByStudentId($studentId){
+        $sql = "SELECT form_sell.id, university.name, unit.unit_name, 
+                session.session, form_sell.is_approve FROM form_sell 
+                INNER JOIN unit ON form_sell.unit_id = unit.id
+                INNER JOIN university ON unit.university_id = university.id
+                INNER JOIN session ON unit.session_id = session.id
+                WHERE form_sell.student_id = $studentId";
+        return $this->db->select($sql);
+    }
 }

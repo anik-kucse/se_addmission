@@ -18,10 +18,6 @@ class FormSell extends MainController{
 
         $data['table'] = $formSellModel->getFormDetail();
 
-
-
-
-
         $this->load->view('partials/header', $pageName);
         $this->load->view('admin/requestedStudent', $data);
         $this->load->view('partials/footer');
@@ -41,7 +37,7 @@ class FormSell extends MainController{
                 'unit_procedure_list_id' => $value['id'],
                 'modified_by' => $userId
             ];
-            $simpleModel->insert('unit_procedure_status', $data);
+            $simpleModel->insert('Unit_procedureStatus', $data);
         }
 
         $cond = "id = $formSellId";

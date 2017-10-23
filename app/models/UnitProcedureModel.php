@@ -19,4 +19,16 @@ class UnitProcedureModel extends MainModel{
 
         return $this->db->select($sql);
     }
+
+    public function getAllProcedureByFormId($formId){
+        $sql = "SELECT unit_procedure_status.id, unit_procedure_list.procedure_serial, procedure_list.name, 
+                unit_procedure_list.is_text, unit_procedure_status.value
+                FROM unit_procedure_status
+                INNER JOIN unit_procedure_list ON unit_procedure_list.id = unit_procedure_status.unit_procedure_list_id
+                INNER JOIN procedure_list on unit_procedure_list.procedure_list_id = procedure_list.id
+                WHERE unit_procedure_status.form_sell_id = $formId
+                ORDER BY unit_procedure_list.procedure_serial ASC";
+
+        return $this->db->select($sql);
+    }
 }

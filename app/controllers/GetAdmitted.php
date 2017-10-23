@@ -58,17 +58,7 @@ class GetAdmitted extends MainController{
 
         $res = $simpleModel->insert('form_sell', $data);
         if($res){
-            $cond = "unit_id = $unitId";
-            $unitProcedureList = $simpleModel->getAll('unit_procedure_list', $cond);
-            foreach ($unitProcedureList as $key => $value){
-                $data=[
-                    'form_sell_id' => $res,
-                    'unit_procedure_list_id' => $value['id'],
-                    'modified_by' => $userId
-                ];
-                $simpleModel->insert('unit_procedure_status', $data);
-            }
-
+            var_dump($res);
         }else{
             var_dump($res);
         }
