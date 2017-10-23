@@ -22,7 +22,7 @@
             <div class="row">
                 <label class="col-1" style="visibility:hidden">hidden</label>
                 <label class="col-2" for="subName">Select Subject</label>
-                <select class="form-control col-3" name="subName" id="subName">
+                <select class="form-control col-3" name="subName" id="subName" >
                     <?php foreach ($data['sub'] as $key => $value){?>
                         <option value="<?php echo $value['id']?>"><?php echo $value['code']." ".$value['name']?></option>
                     <?php }?>

@@ -5,42 +5,42 @@
         <div class="col-8 form-group row">
             <label for="fullname" class="col-2 col-form-label">Full Name</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="fullname" name="fullname">
+                <input class="form-control" type="text" id="fullname" name="fullname" required = "1">
             </div>
         </div>
 
         <div class="col-8 form-group row">
             <label for="username" class="col-2 col-form-label">Username</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="username" name="username">
+                <input class="form-control" type="text" id="username" name="username" required = "1">
             </div>
         </div>
 
         <div class="col-8 form-group row">
             <label for="password" class="col-2 col-form-label">Password</label>
             <div class="col-10">
-                <input class="form-control" type="password" id="password" name="password">
+                <input class="form-control" type="password" id="password" name="password" required = "1">
             </div>
         </div>
 
         <div class="col-8 form-group row">
             <label for="confirm_password" class="col-2 col-form-label">Confirm Password</label>
             <div class="col-10">
-                <input class="form-control" type="password" id="confirm_password" name="confirm_password">
+                <input class="form-control" type="password" id="confirm_password" name="confirm_password" required = "1">
             </div>
         </div>
 
         <div class="col-8 form-group row">
             <label for="fathername" class="col-2 col-form-label">Father's Name</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="fathername" name="fathername">
+                <input class="form-control" type="text" id="fathername" name="fathername" required = "1">
             </div>
         </div>
 
         <div class="col-8 form-group row">
             <label for="mothername" class="col-2 col-form-label">Mother's Name</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="mothername" name="mothername">
+                <input class="form-control" type="text" id="mothername" name="mothername" required = "1">
             </div>
         </div>
 
@@ -51,14 +51,14 @@
         <div class="col-8 form-group row">
             <label for="streetvillage" class="col-2 col-form-label">Street/Village</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="streetvillage" name="streetvillage">
+                <input class="form-control" type="text" id="streetvillage" name="streetvillage" required = "1">
             </div>
         </div>
 
         <div class="col-8 form-group row">
             <label for="postcode1" class="col-2 col-form-label">Post Code</label>
             <div class="col-10">
-                <input class="form-control" type="text" pattern="[0-9]{4}" id="postcode1" name="postcode1">
+                <input class="form-control" type="text" pattern="[0-9]{4}" id="postcode1" name="postcode1" required = "1"> 
             </div>
         </div>
 
@@ -66,21 +66,21 @@
         <div class="col-8 form-group row">
             <label for="upozillathana" class="col-2 col-form-label">Upazilla/Thana</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="upozillathana" name="upozillathana">
+                <input class="form-control" type="text" id="upozillathana" name="upozillathana" required = "1">
             </div>
         </div>
 
         <div class="col-8 form-group row">
             <label for="district" class="col-2 col-form-label">District</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="district" name="district">
+                <input class="form-control" type="text" id="district" name="district" required = "1">
             </div>
         </div>
 
         <div class="col-8 form-group row">
             <label for="division" class="col-2 col-form-label">Division</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="division" name="division">
+                <input class="form-control" type="text" id="division" name="division" required = "1">
             </div>
         </div>
 
@@ -92,14 +92,14 @@
         <div class="col-8 form-group row">
             <label for="perstreetvillage" class="col-2 col-form-label">Street/Village</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="perstreetvillage" name="perstreetvillage">
+                <input class="form-control" type="text" id="perstreetvillage" name="perstreetvillage" required = "1">
             </div>
         </div>
 
         <div class="col-8 form-group row">
             <label for="postcode2" class="col-2 col-form-label">Post Code</label>
             <div class="col-10">
-                <input class="form-control" type="text" pattern="[0-9]{4}" id="postcode2" name="postcode2">
+                <input class="form-control" type="text" pattern="[0-9]{4}" id="postcode2" name="postcode2" required = "1">
             </div>
         </div>
 
@@ -107,21 +107,21 @@
         <div class="col-8 form-group row">
             <label for="perupozillathana" class="col-2 col-form-label">Upazilla/Thana</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="perupozillathana" name="perupozillathana">
+                <input class="form-control" type="text" id="perupozillathana" name="perupozillathana" required = "1">
             </div>
         </div>
 
         <div class="col-8 form-group row">
             <label for="perdistrict" class="col-2 col-form-label">District</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="perdistrict" name="perdistrict">
+                <input class="form-control" type="text" id="perdistrict" name="perdistrict" required = "1">
             </div>
         </div>
 
         <div class="col-8 form-group row">
             <label for="perdivision" class="col-2 col-form-label">Division</label>
             <div class="col-10">
-                <input class="form-control" type="text" id="perdivision" name="perdivision">
+                <input class="form-control" type="text" id="perdivision" name="perdivision" required = "1">
             </div>
         </div>
 
@@ -140,7 +140,7 @@
         <div class="col-8 form-group row">
             <label for="mobile" class="col-2 col-form-label">Mobile No</label>
             <div class="col-10">
-                <input class="form-control" type="text" pattern="[0-9]{11}" id="mobile" name="mobile">
+                <input class="form-control" type="text" pattern="[0-9]{11}" id="mobile" name="mobile" required = "1">
             </div>
         </div>
 
@@ -154,7 +154,7 @@
         <div class="col-8 form-group row">
             <label for="fathermobile" class="col-2 col-form-label">Father's Mobile No</label>
             <div class="col-10">
-                <input class="form-control" type="text" pattern="[0-9]{11}" id="fathermobile" name="fathermobile">
+                <input class="form-control" type="text" pattern="[0-9]{11}" id="fathermobile" name="fathermobile" required = "1">
             </div>
         </div>
 

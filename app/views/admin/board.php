@@ -54,7 +54,7 @@
                      </div>
                      <div class="modal-body">
                          <label for="board_name" id="lbl_board_name">Enter Board Name</label>
-                         <input autofocus="true" type="text" name="board_name" id="board_name" class="form-control" va/>
+                         <input autofocus="true" type="text" name="board_name" id="board_name" class="form-control"  required = "1"/>
                          <br />
                      </div>
                      <div class="modal-footer">

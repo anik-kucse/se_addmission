@@ -240,7 +240,7 @@
             </tbody>
         </table>
 
-    	<div class="col-8 justify-content-around form-group row">
+    	<div class="col-12 justify-content-around form-group row">
             <p>Do you wanna Change your Password?  <a href = "#" style = "color:red" data-toggle="modal" data-target="#ChangePassword"> Yes</a></p>
         </div>
 
@@ -255,15 +255,15 @@
                         <div class="modal-body">
                             <div class="col">
                                 <label for="current_password">Current Password</label>
-                                <input type="password" class="form-control" id="current_password" name="current_password" />
+                                <input type="password" class="form-control" id="current_password" name="current_password" required = "1" />
                             </div>
                             <div class="col">
                                 <label for="new_password" >New Password</label>
-                                <input type="password" class="form-control" name="new_password" id="new_password"/>
+                                <input type="password" class="form-control" name="new_password" id="new_password" required = "1" />
                             </div>
                             <div class="col">
                                 <label for="confirm_password" >Confirm Password</label>
-                                <input type="password" class="form-control" name="confirm_password" id="confirm_password" />
+                                <input type="password" class="form-control" name="confirm_password" id="confirm_password" required = "1" />
                             </div>
                         </div>
                         <div class="modal-footer">

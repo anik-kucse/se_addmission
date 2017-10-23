@@ -56,13 +56,13 @@
                     </div>
                     <div class="modal-body">
                         <label for="sub_code" id="lbl_sub_code">Enter code</label>
-                        <input autofocus="autofocus" type="text" name="sub_code" id="sub_code" class="form-control" va/>
+                        <input autofocus="autofocus" type="text" name="sub_code" id="sub_code" class="form-control"  required = "1"/>
                         <br />
                         <label for="sub_name" id="lbl_sub_name">Enter name </label>
-                        <input type="text" name="sub_name" id="sub_name" class="form-control" va/>
+                        <input type="text" name="sub_name" id="sub_name" class="form-control"  required = "1"/>
                         <br />
                         <label for="sub_type" id="lbl_sub_type">Select type</label>
-                        <select class="form-control" id="sub_type" name="sub_type" title="subject_type">
+                        <select class="form-control" id="sub_type" name="sub_type" title="subject_type" required = "1">
                                 <option value="SSC">SSC</option>
                                 <option value="HSC">HSC</option>
                                 <option value="Dakhil">Dakhil</option>

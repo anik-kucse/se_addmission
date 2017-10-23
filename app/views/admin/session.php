@@ -52,7 +52,7 @@
                     </div>
                     <div class="modal-body">
                         <label for="session_name" id="lbl_session">Enter Session</label>
-                        <input autofocus="autofocus" type="text" name="session_name" id="session_name" class="form-control" va/>
+                        <input autofocus="autofocus" type="text" name="session_name" id="session_name" class="form-control"  required = "1"/>
                         <br />
                     </div>
                     <div class="modal-footer">
