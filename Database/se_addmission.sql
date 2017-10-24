@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2017 at 04:12 PM
+-- Generation Time: Oct 24, 2017 at 06:31 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -40,29 +40,6 @@ CREATE TABLE `board` (
 INSERT INTO `board` (`id`, `name`, `modified_by`, `modified_at`) VALUES
 (36, 'Dhaka', 15, '2017-10-11 14:32:37'),
 (38, 'Jessore', 15, '2017-10-11 14:32:48');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `exam_type`
---
-
-CREATE TABLE `exam_type` (
-  `id` int(11) NOT NULL,
-  `type` varchar(10) NOT NULL,
-  `modified_by` int(11) NOT NULL,
-  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `exam_type`
---
-
-INSERT INTO `exam_type` (`id`, `type`, `modified_by`, `modified_at`) VALUES
-(2, 'HSC', 15, '2017-10-11 23:46:48'),
-(4, 'SSC', 15, '2017-10-12 00:33:35'),
-(5, 'A-Level', 15, '2017-10-17 02:53:13'),
-(6, 'O-Level', 15, '2017-10-17 02:53:20');
 
 -- --------------------------------------------------------
 
@@ -370,9 +347,9 @@ CREATE TABLE `unit_procedure_status` (
 --
 
 INSERT INTO `unit_procedure_status` (`id`, `form_sell_id`, `unit_procedure_list_id`, `value`, `modified_by`, `modified_at`) VALUES
-(15, 14, 3, NULL, 15, '2017-10-20 11:16:48'),
-(16, 14, 4, NULL, 15, '2017-10-20 11:16:48'),
-(17, 14, 5, NULL, 15, '2017-10-20 11:16:48');
+(15, 14, 3, '-1', 15, '2017-10-23 06:14:22'),
+(16, 14, 4, '-1', 15, '2017-10-23 06:14:23'),
+(17, 14, 5, NULL, 15, '2017-10-23 06:14:40');
 
 -- --------------------------------------------------------
 
@@ -429,12 +406,6 @@ INSERT INTO `users` (`id`, `full_name`, `user_name`, `password`, `user_role`, `a
 -- Indexes for table `board`
 --
 ALTER TABLE `board`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `exam_type`
---
-ALTER TABLE `exam_type`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -555,11 +526,6 @@ ALTER TABLE `users`
 ALTER TABLE `board`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
--- AUTO_INCREMENT for table `exam_type`
---
-ALTER TABLE `exam_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
 -- AUTO_INCREMENT for table `form_sell`
 --
 ALTER TABLE `form_sell`
@@ -598,7 +564,7 @@ ALTER TABLE `ssc_hsc_result`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `student_quota`
 --
@@ -633,7 +599,7 @@ ALTER TABLE `university`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- Constraints for dumped tables
 --

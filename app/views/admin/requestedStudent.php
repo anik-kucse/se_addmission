@@ -56,7 +56,7 @@
         $('#board_data').DataTable({
             "columnDefs":[
                 {
-                    "targets":[3, 4],
+                    "targets":[7],
                     "orderable":false,
                 }
             ]

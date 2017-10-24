@@ -3,6 +3,15 @@
     <form action="<?php echo BASE_URL?>/Registration/regAuth" method="post" class="row justify-content-around" style="padding-top: 10px">
 
         <div class="col-8 form-group row">
+            <label class="col-2 col-form-label"></label>
+            <div class="col-10">
+                <?php if(isset($data['msg'])){
+                   echo "<span>".$data['msg']."</span>";
+                }?>
+            </div>
+        </div>
+
+        <div class="col-8 form-group row">
             <label for="fullname" class="col-2 col-form-label">Full Name</label>
             <div class="col-10">
                 <input class="form-control" type="text" id="fullname" name="fullname" required = "1">

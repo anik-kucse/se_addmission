@@ -100,7 +100,7 @@
         $('#session_table').DataTable({
             "columnDefs":[
                 {
-                    "targets":[3, 4],
+                    "targets":[6,7],
                     "orderable":false,
                 }
             ]

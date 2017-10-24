@@ -34,10 +34,10 @@
                         <td><label name="lbl_serial"><?php echo $value['procedure_serial']?></label></td>
                         <td><label name="lbl_name"><?php echo $value['name']?></label></td>
                         <td>
-                            <input type="text" name="txt_input" value="<?php if($value['value'] != null){echo $value['value'];}?>" <?php if($value['is_text'] == '0'){echo 'style="display: none"';}?>>
+                            <input disabled="disabled" type="text" name="txt_input" value="<?php if($value['value'] != null){echo $value['value'];}?>" <?php if($value['is_text'] == '0'){echo 'style="display: none"';}?>>
                         </td>
                         <td>
-                            <input type="checkbox" name="checkbox" <?php if($value['value'] != null){echo "checked";}?>>
+                            <input disabled="disabled" type="checkbox" name="checkbox" <?php if($value['value'] != null){echo "checked";}?>>
 <!--                            <input type="hidden" name="unit_procedure_status_id" value="--><?php //echo $value['id']?><!--">-->
 <!--                            <input type="hidden" name="form_id" value="--><?php //echo $data['formSerial'][0]['id'];?><!--">-->
                         </td>
