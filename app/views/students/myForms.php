@@ -30,7 +30,12 @@
                             echo 'Approved';
                         }?>
                     </td>
-                    <td><a href="<?php echo BASE_URL?>/MyForms/FormProgress/<?php echo $value['id']?>">Detail</a></td>
+                    <td>
+                        <?php if($value['is_approve'] == 1){?>
+                            <a href="<?php echo BASE_URL?>/MyForms/FormProgress/<?php echo $value['id']?>">Detail</a>
+                        <?php }?>
+
+                    </td>
                 </tr>
             <?php }?>
             </tbody>

@@ -65,10 +65,10 @@
                     <a href="<?php echo BASE_URL?>/unitprocedurelist" class="nav-link">Unit procedure list</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Unit procedure status</a>
+                    <a href="<?php echo BASE_URL?>/ReceivePayment" class="nav-link">Receive Payment</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Cost</a>
+                    <a href="<?php echo BASE_URL?>/cost" class="nav-link">Cost</a>
                 </li>
             </ul>
         </div>

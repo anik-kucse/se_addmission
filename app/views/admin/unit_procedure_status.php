@@ -20,7 +20,7 @@
         ?>
     </div>
     <div class="table-responsive">
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>No</th>
@@ -41,7 +41,10 @@
                         <td>
                             <input type="checkbox" name="checkbox" <?php if($value['value'] != null){echo "checked";}?> onchange="select_checkbox(this);">
                             <input type="hidden" name="unit_procedure_status_id" value="<?php echo $value['id']?>">
+                            <input type="hidden" name="unit_procedure_status_name" value="<?php echo $value['name']?>">
+                            <input type="hidden" name="unit_procedure_cost" value="<?php echo $value['cost']?>">
                             <input type="hidden" name="form_id" value="<?php echo $data['formSerial'][0]['id'];?>">
+<!--                            <input type="hidden" name="unit_procedure_list_id" value="--><?php //echo $value['unit_procedure_list_id'];?><!--">-->
                         </td>
                     </form>
                 </tr>

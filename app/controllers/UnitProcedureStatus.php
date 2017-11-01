@@ -41,6 +41,8 @@
         Session::init();
         $userId = Session::get('id');
         $unitProcedureStatusId = $_POST['unit_procedure_status_id'];
+        $procedureName = $_POST['unit_procedure_status_name'];
+        $cost = $_POST['unit_procedure_cost'];
         if($_POST['txt_input'] == ""){
             $value = -1;
         }else{
@@ -57,7 +59,17 @@
             ];
             $res = $simpleModel->update('unit_procedure_status', $data, $cond);
             if($res){
-                header('Location:'.BASE_URL.'/UnitProcedureStatus/main/'.$formId);
+                $table = [
+                    'form_id' => $formId,
+                    'transaction_name' => $procedureName,
+                    'amount' => $cost,
+                    'is_income' => '0',
+                    'is_special' => '0',
+                    'modified_by' => $userId,
+                ];
+                if($simpleModel->insert('cost', $table)){
+                    header('Location:'.BASE_URL.'/UnitProcedureStatus/main/'.$formId);
+                }
             }
         }else{
             $data = [
@@ -66,7 +78,17 @@
             ];
             $res = $simpleModel->update('unit_procedure_status', $data, $cond);
             if($res){
-                header('Location:'.BASE_URL.'/UnitProcedureStatus/main/'.$formId);
+                $table = [
+                    'form_id' => $formId,
+                    'transaction_name' => $procedureName,
+                    'amount' => $cost,
+                    'is_income' => '1',
+                    'is_special' => '0',
+                    'modified_by' => $userId,
+                ];
+                if($simpleModel->insert('cost', $table)) {
+                    header('Location:' . BASE_URL . '/UnitProcedureStatus/main/' . $formId);
+                }
             }
         }
     }

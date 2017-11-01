@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2017 at 06:31 AM
+-- Generation Time: Nov 01, 2017 at 03:39 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -44,6 +44,35 @@ INSERT INTO `board` (`id`, `name`, `modified_by`, `modified_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cost`
+--
+
+CREATE TABLE `cost` (
+  `id` int(11) NOT NULL,
+  `form_id` int(11) NOT NULL,
+  `transaction_name` varchar(256) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `is_income` tinyint(1) NOT NULL,
+  `is_special` tinyint(1) NOT NULL,
+  `modified_by` int(11) NOT NULL,
+  `modified_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cost`
+--
+
+INSERT INTO `cost` (`id`, `form_id`, `transaction_name`, `amount`, `is_income`, `is_special`, `modified_by`, `modified_at`) VALUES
+(2, 18, 'Form purchased', 100, 1, 0, 16, '2017-11-01 01:35:35'),
+(3, 18, 'Form purchased', 300, 1, 0, 16, '2017-11-01 01:35:44'),
+(4, 18, 'Form purchased', 100, 1, 0, 16, '2017-11-01 02:01:46'),
+(5, 18, 'download', 10, 0, 0, 15, '2017-11-01 06:49:26'),
+(6, 18, 'Tx number', 100, 0, 0, 15, '2017-11-01 07:11:39'),
+(7, 19, 'Form purchased', 0, 1, 1, 15, '2017-11-01 08:01:30');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `form_sell`
 --
 
@@ -62,7 +91,8 @@ CREATE TABLE `form_sell` (
 --
 
 INSERT INTO `form_sell` (`id`, `student_id`, `unit_id`, `serial_number`, `is_approve`, `modified_by`, `modified_at`) VALUES
-(14, 4, 4, 00000000001, 1, 4, '2017-10-20 11:16:48');
+(18, 4, 5, 00000000001, 1, 16, '2017-10-31 12:23:35'),
+(19, 4, 4, 00000000002, 1, 16, '2017-11-01 02:01:13');
 
 -- --------------------------------------------------------
 
@@ -347,9 +377,11 @@ CREATE TABLE `unit_procedure_status` (
 --
 
 INSERT INTO `unit_procedure_status` (`id`, `form_sell_id`, `unit_procedure_list_id`, `value`, `modified_by`, `modified_at`) VALUES
-(15, 14, 3, '-1', 15, '2017-10-23 06:14:22'),
-(16, 14, 4, '-1', 15, '2017-10-23 06:14:23'),
-(17, 14, 5, NULL, 15, '2017-10-23 06:14:40');
+(20, 18, 6, 'sdfsdf', 15, '2017-11-01 00:49:26'),
+(21, 18, 7, '-1', 15, '2017-11-01 01:11:39'),
+(22, 19, 3, NULL, 15, '2017-11-01 02:01:13'),
+(23, 19, 4, NULL, 15, '2017-11-01 02:01:13'),
+(24, 19, 5, NULL, 15, '2017-11-01 02:01:13');
 
 -- --------------------------------------------------------
 
@@ -396,7 +428,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `full_name`, `user_name`, `password`, `user_role`, `account_status`, `modified_by`, `modified_at`) VALUES
 (15, 'Ashfiqur Rahman', 'admin', '202cb962ac59075b964b07152d234b70', 'admin', 1, 15, '2017-10-18 01:16:13'),
 (16, 'asd', 'asd', '202cb962ac59075b964b07152d234b70', 'student', 1, 15, '2017-10-15 02:41:34'),
-(23, 'J. M. Ashfiqur Rahman', 'anik', '202cb962ac59075b964b07152d234b70', 'student', 1, 15, '2017-10-19 01:48:12');
+(23, 'J. M. Ashfiqur Rahman', 'anik', '202cb962ac59075b964b07152d234b70', 'student', 1, 15, '2017-10-19 01:48:12'),
+(24, 'anik rahman', 'manager', '202cb962ac59075b964b07152d234b70', 'manager', 1, 15, '2017-10-31 13:51:30'),
+(25, 'Akib Rahman', 'data', '202cb962ac59075b964b07152d234b70', 'data_entry', 1, 15, '2017-10-31 13:52:09');
 
 --
 -- Indexes for dumped tables
@@ -406,6 +440,12 @@ INSERT INTO `users` (`id`, `full_name`, `user_name`, `password`, `user_role`, `a
 -- Indexes for table `board`
 --
 ALTER TABLE `board`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cost`
+--
+ALTER TABLE `cost`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -526,10 +566,15 @@ ALTER TABLE `users`
 ALTER TABLE `board`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
+-- AUTO_INCREMENT for table `cost`
+--
+ALTER TABLE `cost`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
 -- AUTO_INCREMENT for table `form_sell`
 --
 ALTER TABLE `form_sell`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `procedure_list`
 --
@@ -589,7 +634,7 @@ ALTER TABLE `unit_procedure_list`
 -- AUTO_INCREMENT for table `unit_procedure_status`
 --
 ALTER TABLE `unit_procedure_status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `university`
 --
@@ -599,7 +644,7 @@ ALTER TABLE `university`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- Constraints for dumped tables
 --

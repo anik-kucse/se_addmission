@@ -1,7 +1,7 @@
-<div class="col">
+<div class="col-9">
     <h1 style="text-align: center">Unit Procedure List</h1>
     <br>
-    <div class="col-12">
+    <div class="col">
         <form method="post" id="unit_university">
             <div class="row">
                 <label  class="col-md-3" style="visibility:hidden">hidden</label>

@@ -21,8 +21,8 @@ class UnitProcedureModel extends MainModel{
     }
 
     public function getAllProcedureByFormId($formId){
-        $sql = "SELECT unit_procedure_status.id, unit_procedure_list.procedure_serial, procedure_list.name, 
-                unit_procedure_list.is_text, unit_procedure_status.value
+        $sql = "SELECT unit_procedure_status.id, unit_procedure_list.procedure_serial, procedure_list.name, unit_procedure_list.cost,
+                unit_procedure_list.is_text, unit_procedure_status.value, unit_procedure_status.unit_procedure_list_id
                 FROM unit_procedure_status
                 INNER JOIN unit_procedure_list ON unit_procedure_list.id = unit_procedure_status.unit_procedure_list_id
                 INNER JOIN procedure_list on unit_procedure_list.procedure_list_id = procedure_list.id

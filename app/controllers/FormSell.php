@@ -37,7 +37,7 @@ class FormSell extends MainController{
                 'unit_procedure_list_id' => $value['id'],
                 'modified_by' => $userId
             ];
-            $simpleModel->insert('Unit_procedureStatus', $data);
+            $simpleModel->insert('unit_procedure_status', $data);
         }
 
         $cond = "id = $formSellId";

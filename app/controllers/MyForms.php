@@ -21,7 +21,7 @@ class MyForms extends MainController{
 
         $data['table'] = $formSellModel->getFormDetail();
         $this->load->view('partials/headerPublic', $pageName);
-        $this->load->view('students/myForms',$data);
+        $this->load->view('students/myForms', $data);
         $this->load->view('partials/footer');
     }
 

@@ -37,6 +37,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASE_URL?>/MyForms">My Forms</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo BASE_URL?>/paymentHistory">Payment History</a>
+                </li>
             <?php }?>
         </ul>
         <ul class="navbar-nav ml-auto">
