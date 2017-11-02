@@ -1,6 +1,6 @@
 <div class="col">
     <h1 style="text-align: center">Payment History</h1>
-    <table id="table" width=100%>
+    <table id="table" width="100%" class="table table-responsive">
         <thead>
         <tr>
             <th>Date</th>
