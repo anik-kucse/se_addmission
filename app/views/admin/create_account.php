@@ -1,7 +1,7 @@
-<div class="container">
+<div class="col-9">
     <h1 style="text-align: center">Create Account for Manager/Data Entry</h1>
     <form action="<?php echo BASE_URL?>/CreateAccount/main" method="post">
-        <div class="">
+        <div class="row justify-content-around" style="padding-top: 10px">
             <?php if($data['user_error'] == true){?>
                 <label class="text-danger">Username already exist</label>
                 <br>
@@ -14,25 +14,32 @@
                 <label class="text-success">Account creation Complete</label>
                 <br>
             <?php }?>
-            <label for="">Full Name: </label>
-            <input type="text" name="name" required>
-            <br>
-            <label for="">Username: </label>
-            <input type="text" name="user_name" required>
-            <br>
-            <label for="">Password: </label>
-            <input type="password" name="pass" required>
-            <br>
-            <label for="">Confirm password: </label>
-            <input type="password" name="con_pass" required>
-            <br>
-            <label for="">Select Role: </label>
-            <select name="role" id="role">
-                <option value="manager">Manager</option>
-                <option value="data_entry">Data Entry</option>
-            </select>
-            <br>
-            <input type="submit" name="create" value="create" class="btn btn-outline-dark">
+            <div class="col-8 form-group row">
+                <label class="col-2 col-form-label" for="">Full Name: </label>
+                <input class="col-9 form-control" type="text" name="name" required>
+            </div><br>
+            <div class="col-8 form-group row">
+                <label class="col-2 col-form-label" for="">Username: </label>
+                <input class="col-9 form-control" type="text" name="user_name" required>
+            </div><br>
+            <div class="col-8 form-group row">
+                <label class="col-2 col-form-label" for="">Password: </label>
+                <input class="col-9 form-control" type="password" name="pass" required>
+            </div><br>
+            <div class="col-8 form-group row">
+                <label class="col-2 col-form-label" for="">Confirm password: </label>
+                <input class="col-9 form-control" type="password" name="con_pass" required>
+            </div><br>
+            <div class="col-8 form-group row">
+                <label class="col-2 col-form-label" for="">Select Role: </label>
+                <select name="role" id="role"class="col-9 form-control">
+                    <option value="manager">Manager</option>
+                    <option value="data_entry">Data Entry</option>
+                </select>
+            </div><br>
+            <div class="col-8 form-group">
+                <input type="submit" name="create" value="create" class="btn btn-outline-dark">
+            </div>
         </div>
     </form>
 </div>

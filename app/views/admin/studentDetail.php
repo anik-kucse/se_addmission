@@ -1,4 +1,4 @@
-<div class="col">
+<div class="col-9">
     <h1 style="text-align: center">Student Detail</h1>
     <div style="padding-top: 10px">
         <div class="col-12 row">

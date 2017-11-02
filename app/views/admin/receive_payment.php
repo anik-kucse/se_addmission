@@ -1,17 +1,23 @@
-<div class="col">
+<div class="col-9">
     <h1 style="text-align: center">Receive Payment</h1>
-    <div class="">
-        <form action="<?php echo BASE_URL?>/ReceivePayment/main" method="post">
-            <label>Form Number</label>
-            <input type="text" name="form_number">
-            <br>
-            <label>Amount</label>
-            <input type="number" name="amount">
-            <br>
-            <label>Special</label>
-            <input type="checkbox" value="1" name="is_special">
-            <br>
-            <input type="submit" value="Take" class="btn btn-outline-dark">
+    <br>
+    <div class="row justify-content-around">
+        <form action="<?php echo BASE_URL?>/ReceivePayment/main" method="post" class="row justify-content-around">
+            <div class="col-8 form-group row">
+                <label class="col-4 col-form-label">Form Number</label>
+                <input class="col-8 form-control" type="text" name="form_number">
+            </div><br>
+            <div class="col-8 form-group row">
+                <label class = "col-4 col-form-label">Amount</label>
+                <input class="col-8 form-control" type="number" name="amount">
+            </div><br>
+            <div class="col-8 form-group row">
+                <label class="col-4 col-form-label">Special</label>
+                <input class="col-8 form-control" type="checkbox" value="1" name="is_special">
+            </div><br>
+            <div class="col-8 form-group">
+                <input type="submit" value="Take" class="btn btn-outline-dark ">
+            </div>
         </form>
     </div>
     <table id="table" width=100%>

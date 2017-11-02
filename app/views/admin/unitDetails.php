@@ -1,4 +1,4 @@
-<div class="col">
+<div class="col-9">
     <h1 style="text-align: center">Unit details</h1>
     <form class="row justify-content-around" style="padding-top: 10px">
 

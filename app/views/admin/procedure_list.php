@@ -1,4 +1,4 @@
-<div class="col">
+<div class="col-9">
     <h1 style="text-align: center">Procedure List</h1>
     <div class="table-responsive">
         <br />

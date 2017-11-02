@@ -1,7 +1,7 @@
 <div class="col-9">
     <h1 style="text-align: center">Unit Procedure List</h1>
     <br>
-    <div class="col">
+    <div class="col-8">
         <form method="post" id="unit_university">
             <div class="row">
                 <label  class="col-md-3" style="visibility:hidden">hidden</label>
@@ -19,17 +19,17 @@
         </form>
     </div>
     <div class="table-responsive">
-        <br />
+        <br/>
         <table id="board_data" class="table">
             <thead>
                 <tr>
-                    <th >Serial No</th>
-                    <th >Procedure Name</th>
-                    <th >Input type</th>
-                    <th >Cost</th>
-                    <th >Modified by</th>
-                    <th >Modified At</th>
-                    <th >Edit</th>
+                    <th>Serial No</th>
+                    <th>Procedure Name</th>
+                    <th>Input type</th>
+                    <th>Cost</th>
+                    <th>Modified by</th>
+                    <th>Modified At</th>
+                    <th>Edit</th>
                     <?php
                     Session::init();
                     if(Session::get('user_role') == 'admin'){?>

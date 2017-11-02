@@ -1,4 +1,4 @@
-<div class="col">
+<div class="col-9">
     <h1 style="text-align: center">Account Manage</h1>
     <span class="text-danger text-center"><?php
         if(isset($data['msg'])){

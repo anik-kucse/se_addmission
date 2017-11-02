@@ -1,4 +1,4 @@
-<div class="col">
+<div class="col-9">
     <h1 style="text-align: center">All Cost</h1>
     <table id="table" width=100%>
         <thead>
