@@ -94,8 +94,7 @@
         </div>
 
         <div class="col-8 form-group row">
-            <span><b>Permanent Address</b></span>
-
+            <span><b>Permanent Address</b> <span>Select Present Address as Permanent</span> <input type="checkbox" onchange="permanent();"></span>
         </div>
 
         <div class="col-8 form-group row">
@@ -214,3 +213,20 @@
         </div>
     </form>
 </div>
+
+<script>
+    function permanent() {
+        var present_street = $('#streetvillage').val();
+        var present_post = $('#postcode1').val();
+        var present_thana = $('#upozillathana').val();
+        var present_district = $('#district').val();
+        var present_divition= $('#division').val();
+        $('#perstreetvillage').val(present_street);
+        $('#postcode2').val(present_post);
+        $('#perupozillathana').val(present_thana);
+        $('#perdistrict').val(present_district);
+        $('#perdivision').val(present_divition);
+
+
+    }
+</script>

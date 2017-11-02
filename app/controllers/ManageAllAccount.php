@@ -9,20 +9,28 @@
 class ManageAllAccount  extends MainController{
     public function __construct(){
         parent::__construct();
+        Session::init();
+        Session::checkSession();
+        $role = Session::get('user_role');
+        if($role == 'student' || $role == 'data_entry'){
+            header('Location:'.BASE_URL);
+        }
     }
 
     public function index(){
-        self::allAcoount();
+        self::allAccount();
     }
 
-    public function allAcoount(){
+    public function allAccount(){
         $pageName = ['pageName' => 'Manage All User'];
         $this->load->view('partials/header', $pageName);
 
         $simpleModel = $this->load->model('SimpleModel');
         $cond = "user_role != 'admin'";
         $table['list'] = $simpleModel->getAll('users', $cond);
-        $table['users'] = $simpleModel->getAll('users');
+
+        $cond = "user_role = 'admin' OR user_role = 'manager'";
+        $table['users'] = $simpleModel->getAll('users', $cond);
 
         $this->load->view('admin/manageAllAccount', $table);
         $this->load->view('partials/footer');
@@ -61,7 +69,6 @@ class ManageAllAccount  extends MainController{
             header("Location: ".BASE_URL."/manageallaccount");
         }
         else {
-            var_dump($session_id);
             echo "Error Mofo check your shitty code.";
         }
     }

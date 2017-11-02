@@ -9,6 +9,7 @@
 class UnitDetail extends MainController{
     public function __construct(){
         parent::__construct();
+        Session::checkSession();
     }
 
     public function index(){

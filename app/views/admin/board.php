@@ -9,7 +9,11 @@
                      <th >Modified by</th>
                      <th >Modified At</th>
                      <th >Edit</th>
-                     <th >Delete</th>
+                     <?php
+                     Session::init();
+                     if(Session::get('user_role') == 'admin'){?>
+                         <th >Delete</th>
+                     <?php }?>
                  </tr>
              </thead>
              <tbody>
@@ -31,11 +35,15 @@
                      <td>
                          <button type="button" name="update" value="<?php echo $value['id']?>" class="btn btn-outline-info my-2 my-sm-0" onclick="btnupdate(this);" >Update</button>
                      </td>
+                     <?php
+                     Session::init();
+                     if(Session::get('user_role') == 'admin'){?>
                      <td>
                          <form action="<?php echo BASE_URL?>/Board/delete" method="post">
                              <button type="submit" name="delete" value="<?php echo $value['id']?>" class="btn btn-outline-danger my-2 my-sm-0" onclick="return confirm('Do u really wanna delete')">Delete</button>
                          </form>
                      </td>
+                     <?php }?>
                  </tr>
              <?php }?>
              </tbody>
@@ -72,7 +80,7 @@
         $('#board_data').DataTable({
             "columnDefs":[
                 {
-                    "targets":[3, 4],
+                    "targets":[3],
                     "orderable":false,
                 }
             ]

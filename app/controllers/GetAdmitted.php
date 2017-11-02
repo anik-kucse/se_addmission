@@ -10,6 +10,12 @@ class GetAdmitted extends MainController{
 
     public function __construct(){
         parent::__construct();
+        Session::init();
+        Session::checkSession();
+        $role = Session::get('user_role');
+        if($role != 'student'){
+            header('Location:'.BASE_URL);
+        }
     }
 
     public function index(){

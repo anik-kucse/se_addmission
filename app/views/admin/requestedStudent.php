@@ -18,7 +18,7 @@
             <tbody>
             <?php foreach ($data['table'] as $key => $value){?>
                 <tr>
-                    <td><?php echo $value['full_name']?></td>
+                    <td><a href="<?php echo BASE_URL?>/StudentDetail/main/<?php echo $value['studentId']?>"><?php echo $value['full_name']?></a></td>
                     <td><?php echo $value['name']?></td>
                     <td><?php echo $value['unit_name']?></td>
                     <td><?php echo $value['session']?></td>

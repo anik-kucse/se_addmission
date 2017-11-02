@@ -18,7 +18,11 @@
                 <th>Modified by</th>
                 <th>Modified at</th>
                 <th>Update</th>
-                <th>Delete</th>
+                <?php
+                Session::init();
+                if(Session::get('user_role') == 'admin'){?>
+                    <th>Delete</th>
+                <?php }?>
 
             </tr>
             </thead>
@@ -85,6 +89,9 @@
                                 data-target="#update" data-whatever="@mdo" onclick="btn_update(this);">Update
                         </button>
                     </td>
+                    <?php
+                    Session::init();
+                    if(Session::get('user_role') == 'admin'){?>
                     <td>
                         <form method="post" action="<?php echo BASE_URL?>/unit/delete">
                             <button type="submit" name="delete" value="<?php echo $value['id']?>" class="btn btn-outline-info my-2 my-sm-0" data-toggle="modal"
@@ -92,12 +99,11 @@
                             </button>
                         </form>
                     </td>
-
+                    <?php }?>
                 </tr>
             <?php }?>
             </tbody>
         </table>
-
         <div class="col crtbtn">
             <button type="button" name="btnCreat" class="btn btn-outline-dark my-2 my-sm-0 crtbtn"
                     data-toggle="modal" data-target="#create" data-whatever="@mdo" onclick="btn_add(this);">Create new
@@ -185,7 +191,7 @@
         $('#data_table').DataTable({
             "columnDefs":[
                 {
-                    "targets":[9,12, 13],
+                    "targets":[9,12],
                     "orderable":false,
                 }
             ]

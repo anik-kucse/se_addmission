@@ -12,7 +12,7 @@ class FormSellModel extends MainModel{
     }
 
     public function getFormDetail(){
-        $sql = "SELECT form_sell.id, users.full_name , unit.unit_name, university.name, form_sell.serial_number, 
+        $sql = "SELECT form_sell.id, users.full_name, student.id AS studentId, unit.unit_name, university.name, form_sell.serial_number, 
                 session.session, unit.form_price, unit.service_charge, form_sell.is_approve, form_sell.unit_id
                 FROM form_sell	
                 INNER JOIN student ON student.id = form_sell.student_id

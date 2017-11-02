@@ -12,16 +12,17 @@
     <div class="d-flex justify-content-center" style="height: 90vh">
         <div class="align-self-center col-6">
 
-            <form class="form-horizontal" role="form" method="POST"
-                  action="<?php echo BASE_URL ?>/Login/loginAuth">
+            <form class="form-horizontal" role="form" method="POST" action="<?php echo BASE_URL ?>/Login">
+
                 <div class="row">
                     <div class="col-md-3"></div>
                     <div class="col-md-6">
-                <span class="text-success"><?php
-                    if (isset($success)) {
-                        echo $success;
-                    }
-                    ?></span>
+                        <?php if($data['error'] == '1'){?>
+                            <span class="text-danger">Wrong Credentials</span>
+                        <?php }?>
+                        <?php if($data['active_error'] == '1'){?>
+                            <span class="text-danger">Your Account is Deactivated. Please Contact with Administration.</span>
+                        <?php }?>
                     </div>
                 </div>
                 <div class="row">

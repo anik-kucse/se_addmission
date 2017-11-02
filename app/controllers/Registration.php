@@ -9,7 +9,6 @@
 class Registration extends MainController{
     public function __construct(){
         parent::__construct();
-//        Usession::checkSession();
     }
 
     public function Index(){

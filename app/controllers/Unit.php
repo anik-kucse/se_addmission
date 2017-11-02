@@ -9,6 +9,12 @@
 class Unit extends MainController{
     public function __construct(){
         parent::__construct();
+        Session::init();
+        Session::checkSession();
+        $role = Session::get('user_role');
+        if($role == 'student' || $role == 'data_entry'){
+            header('Location:'.BASE_URL);
+        }
     }
 
     public function index(){
@@ -33,7 +39,8 @@ class Unit extends MainController{
         }
         $table['university'] = $simpleModel->getAll('university');
         $table['session'] =$simpleModel->getAll('session');
-        $table['users'] =$simpleModel->getAll('users');
+        $cond = "user_role = 'admin' OR user_role = 'manager'";
+        $table['users'] = $simpleModel->getAll('users', $cond);
 
         $this->load->view('admin/unit',$table);
         $this->load->view('partials/footer');

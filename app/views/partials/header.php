@@ -34,35 +34,47 @@
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL?>/AccountManage" class="nav-link">Account Manage</a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL?>/manageallaccount" class="nav-link">Manage All Account</a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL?>/university" class="nav-link">University</a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL?>/unit" class="nav-link">Unit</a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL?>/usession" class="nav-link">Session</a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL?>/subject" class="nav-link">Subject</a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL?>/board" class="nav-link">Board</a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL?>/Quota" class="nav-link">Student quota</a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL?>/procedureList" class="nav-link">Procedure list</a>
-                </li>
+                <?php
+                    Session::init();
+                    if(Session::get('user_role') == 'admin'){?>
+                        <li class="nav-item">
+                            <a href="<?php echo BASE_URL?>/CreateAccount" class="nav-link">Create Account</a>
+                        </li>
+                <?php }?>
+                <?php
+                    Session::init();
+                    if(Session::get('user_role') == 'admin' || Session::get('user_role') == 'manager'){
+                    ?>
+                    <li class="nav-item">
+                        <a href="<?php echo BASE_URL?>/manageallaccount" class="nav-link">Manage All Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo BASE_URL?>/university" class="nav-link">University</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo BASE_URL?>/unit" class="nav-link">Unit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo BASE_URL?>/usession" class="nav-link">Session</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo BASE_URL?>/subject" class="nav-link">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo BASE_URL?>/board" class="nav-link">Board</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo BASE_URL?>/Quota" class="nav-link">Student quota</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo BASE_URL?>/procedureList" class="nav-link">Procedure list</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo BASE_URL?>/unitprocedurelist" class="nav-link">Unit procedure list</a>
+                    </li>
+                <?php }?>
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL?>/formsell" class="nav-link">Form sell</a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL?>/unitprocedurelist" class="nav-link">Unit procedure list</a>
                 </li>
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL?>/ReceivePayment" class="nav-link">Receive Payment</a>

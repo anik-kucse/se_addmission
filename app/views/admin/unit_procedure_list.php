@@ -30,7 +30,11 @@
                     <th >Modified by</th>
                     <th >Modified At</th>
                     <th >Edit</th>
+                    <?php
+                    Session::init();
+                    if(Session::get('user_role') == 'admin'){?>
                     <th >Delete</th>
+                    <?php }?>
                 </tr>
             </thead>
             <tbody>
@@ -53,19 +57,29 @@
                             <label for="input_type" class=""><input type="checkbox" name="input_type" class="" value="1" <?php if($value['is_text'] == '1'){echo 'checked = checked';}?>/>Text</label>
                         </td>
                         <td><input type="number" name="cost" value="<?php echo $value['cost']?>" ></td>
-                        <td><label><?php echo $value['modified_by']?></label></td>
+                        <td><label><?php
+                                foreach ($data['users'] as $k => $v) {
+                                    if($v['id'] == $value['modified_by']){
+                                        echo $v['full_name'];
+                                    }
+                                }
+                                ?></label></td>
                         <td><label><?php echo $value['modified_at']?></label></td>
                         <td>
                             <input type="hidden" name="unit_id" value="<?php echo $data['unit_id']?>">
                             <button type="submit" name="unit_procedure_id" value="<?php echo $value['id']?>" class="btn btn-outline-info my-2 my-sm-0" onclick="btnupdate(this);" >Update</button>
                         </td>
                     </form>
+                    <?php
+                    Session::init();
+                    if(Session::get('user_role') == 'admin'){?>
                     <td>
                         <form action="<?php echo BASE_URL?>/unitprocedurelist/delete" method="post">
                             <input type="hidden" name="unit_id" value="<?php echo $data['unit_id']?>">
                             <button type="submit" name="delete" value="<?php echo $value['id'] ?>" class="btn btn-outline-danger my-2 my-sm-0" onclick="return confirm('Do u really wanna delete')">Delete</button>
                         </form>
                     </td>
+                    <?php }?>
                 </tr>
             <?php }?>
             </tbody>

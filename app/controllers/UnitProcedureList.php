@@ -9,6 +9,12 @@
 class UnitProcedureList extends MainController{
     public function __construct(){
         parent::__construct();
+        Session::init();
+        Session::checkSession();
+        $role = Session::get('user_role');
+        if($role == 'student' || $role == 'data_entry'){
+            header('Location:'.BASE_URL);
+        }
     }
 
     public function index(){
@@ -33,6 +39,9 @@ class UnitProcedureList extends MainController{
         $unit_id = $data['unit_id'];
         $cond = "unit_id = $unit_id";
         $data['table'] =  $simpleModel->getAll('unit_procedure_list', $cond);
+
+        $cond = "user_role = 'admin' OR user_role = 'manager'";
+        $data['users'] = $simpleModel->getAll('users', $cond);
 
         $this->load->view('partials/header', $pageName);
         $this->load->view('admin/unit_procedure_list', $data);
