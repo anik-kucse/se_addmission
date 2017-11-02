@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2017 at 03:39 AM
+-- Generation Time: Nov 02, 2017 at 03:20 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -51,7 +51,7 @@ CREATE TABLE `cost` (
   `id` int(11) NOT NULL,
   `form_id` int(11) NOT NULL,
   `transaction_name` varchar(256) NOT NULL,
-  `amount` int(11) NOT NULL,
+  `amount` decimal(7,2) NOT NULL,
   `is_income` tinyint(1) NOT NULL,
   `is_special` tinyint(1) NOT NULL,
   `modified_by` int(11) NOT NULL,
@@ -63,12 +63,8 @@ CREATE TABLE `cost` (
 --
 
 INSERT INTO `cost` (`id`, `form_id`, `transaction_name`, `amount`, `is_income`, `is_special`, `modified_by`, `modified_at`) VALUES
-(2, 18, 'Form purchased', 100, 1, 0, 16, '2017-11-01 01:35:35'),
-(3, 18, 'Form purchased', 300, 1, 0, 16, '2017-11-01 01:35:44'),
-(4, 18, 'Form purchased', 100, 1, 0, 16, '2017-11-01 02:01:46'),
-(5, 18, 'download', 10, 0, 0, 15, '2017-11-01 06:49:26'),
-(6, 18, 'Tx number', 100, 0, 0, 15, '2017-11-01 07:11:39'),
-(7, 19, 'Form purchased', 0, 1, 1, 15, '2017-11-01 08:01:30');
+(8, 20, 'Form purchased', '750.00', 1, 0, 15, '2017-11-01 20:47:57'),
+(9, 20, 'download', '10.00', 0, 0, 15, '2017-11-01 20:48:39');
 
 -- --------------------------------------------------------
 
@@ -91,8 +87,7 @@ CREATE TABLE `form_sell` (
 --
 
 INSERT INTO `form_sell` (`id`, `student_id`, `unit_id`, `serial_number`, `is_approve`, `modified_by`, `modified_at`) VALUES
-(18, 4, 5, 00000000001, 1, 16, '2017-10-31 12:23:35'),
-(19, 4, 4, 00000000002, 1, 16, '2017-11-01 02:01:13');
+(20, 4, 5, 00000000001, 1, 16, '2017-11-01 14:47:23');
 
 -- --------------------------------------------------------
 
@@ -341,7 +336,7 @@ CREATE TABLE `unit_procedure_list` (
   `procedure_list_id` int(11) NOT NULL,
   `procedure_serial` int(3) NOT NULL,
   `is_text` tinyint(1) NOT NULL,
-  `cost` int(11) NOT NULL,
+  `cost` decimal(7,2) NOT NULL,
   `modified_by` int(11) NOT NULL,
   `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -351,11 +346,11 @@ CREATE TABLE `unit_procedure_list` (
 --
 
 INSERT INTO `unit_procedure_list` (`id`, `unit_id`, `procedure_list_id`, `procedure_serial`, `is_text`, `cost`, `modified_by`, `modified_at`) VALUES
-(3, 4, 1, 1, 0, 123, 15, '2017-10-19 11:20:01'),
-(4, 4, 1, 2, 0, 12, 15, '2017-10-19 11:20:14'),
-(5, 4, 2, 3, 1, 123, 15, '2017-10-19 10:40:06'),
-(6, 5, 1, 1, 1, 10, 15, '2017-10-19 13:23:36'),
-(7, 5, 2, 2, 0, 100, 15, '2017-10-19 13:23:51');
+(3, 4, 1, 1, 0, '123.00', 15, '2017-10-19 11:20:01'),
+(4, 4, 1, 2, 0, '12.00', 15, '2017-10-19 11:20:14'),
+(5, 4, 2, 3, 1, '123.00', 15, '2017-10-19 10:40:06'),
+(6, 5, 1, 1, 1, '10.00', 15, '2017-10-19 13:23:36'),
+(7, 5, 2, 2, 0, '100.00', 15, '2017-10-19 13:23:51');
 
 -- --------------------------------------------------------
 
@@ -377,11 +372,8 @@ CREATE TABLE `unit_procedure_status` (
 --
 
 INSERT INTO `unit_procedure_status` (`id`, `form_sell_id`, `unit_procedure_list_id`, `value`, `modified_by`, `modified_at`) VALUES
-(20, 18, 6, 'sdfsdf', 15, '2017-11-01 00:49:26'),
-(21, 18, 7, '-1', 15, '2017-11-01 01:11:39'),
-(22, 19, 3, NULL, 15, '2017-11-01 02:01:13'),
-(23, 19, 4, NULL, 15, '2017-11-01 02:01:13'),
-(24, 19, 5, NULL, 15, '2017-11-01 02:01:13');
+(25, 20, 6, 'dsdfsf', 15, '2017-11-01 14:48:38'),
+(26, 20, 7, NULL, 15, '2017-11-01 14:47:22');
 
 -- --------------------------------------------------------
 
@@ -427,8 +419,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `full_name`, `user_name`, `password`, `user_role`, `account_status`, `modified_by`, `modified_at`) VALUES
 (15, 'Ashfiqur Rahman', 'admin', '202cb962ac59075b964b07152d234b70', 'admin', 1, 15, '2017-10-18 01:16:13'),
-(16, 'asd', 'asd', '202cb962ac59075b964b07152d234b70', 'student', 1, 15, '2017-10-15 02:41:34'),
-(23, 'J. M. Ashfiqur Rahman', 'anik', '202cb962ac59075b964b07152d234b70', 'student', 1, 15, '2017-10-19 01:48:12'),
+(16, 'asd', 'asd', '202cb962ac59075b964b07152d234b70', 'student', 1, 15, '2017-11-02 01:01:13'),
+(23, 'J. M. Ashfiqur Rahman', 'anik', '202cb962ac59075b964b07152d234b70', 'student', 1, 15, '2017-11-02 01:14:15'),
 (24, 'anik rahman', 'manager', '202cb962ac59075b964b07152d234b70', 'manager', 1, 15, '2017-10-31 13:51:30'),
 (25, 'Akib Rahman', 'data', '202cb962ac59075b964b07152d234b70', 'data_entry', 1, 15, '2017-10-31 13:52:09');
 
@@ -446,7 +438,8 @@ ALTER TABLE `board`
 -- Indexes for table `cost`
 --
 ALTER TABLE `cost`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `form_id` (`form_id`);
 
 --
 -- Indexes for table `form_sell`
@@ -569,12 +562,12 @@ ALTER TABLE `board`
 -- AUTO_INCREMENT for table `cost`
 --
 ALTER TABLE `cost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `form_sell`
 --
 ALTER TABLE `form_sell`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `procedure_list`
 --
@@ -634,7 +627,7 @@ ALTER TABLE `unit_procedure_list`
 -- AUTO_INCREMENT for table `unit_procedure_status`
 --
 ALTER TABLE `unit_procedure_status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `university`
 --
@@ -648,6 +641,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `cost`
+--
+ALTER TABLE `cost`
+  ADD CONSTRAINT `cost_ibfk_1` FOREIGN KEY (`form_id`) REFERENCES `form_sell` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `form_sell`
